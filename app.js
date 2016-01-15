@@ -4,7 +4,7 @@ var app = express();
 var morgan = require('morgan');
 app.use( morgan('dev') );
 
-require('dotenv').load()
+require('dotenv').load();
 
 
 // Public: Set publically accessible directory
