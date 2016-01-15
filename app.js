@@ -28,7 +28,7 @@ var mongoPath = process.env.MONGOLAB_URI || 'mongodb://localhost/funinthesun';
 var mongoose = require('mongoose');
 mongoose.connect(mongoPath);
 
-
-app.listen(parseInt(process.env.PORT) || 3000, function () {
-  console.log('listening 3000');
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log('listening', port);
 });
