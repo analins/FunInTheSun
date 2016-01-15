@@ -24,6 +24,10 @@ app.use(cookieParser());
 // EJS: Template Rendering
 app.set('view engine', 'ejs');
 
+// <<< Added By Nat >>> Index View route:  `/`
+var index = require('./routes/index');
+app.use('/', index);
+
 var mongoPath = process.env.MONGOLAB_URI || 'mongodb://localhost/funinthesun';
 var mongoose = require('mongoose');
 mongoose.connect(mongoPath);
