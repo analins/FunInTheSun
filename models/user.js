@@ -18,13 +18,13 @@ var UserSchema = mongoose.Schema({
 
 UserSchema.pre('save', function (next) {
   if( this.isModified('password')){
-    this.password = bcrypt.hashSync(this.password, 10);
+    this.password = bcryptjs.hashSync(this.password, 10);
   }
   return next();
 });
 
 UserSchema.methods.authenticate = function (passwordTry, callback) {
-  bcrypt.compare(passwordTry, this.password, function (err, isMatch) {
+  bcryptjs.compare(passwordTry, this.password, function (err, isMatch) {
     if (err) {return callback(err)}
     callback(null, isMatch);
   });
