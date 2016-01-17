@@ -13,5 +13,19 @@
 
 
 <!--  Templates -->
-<!--  NAT will add -->
-<!--  Templates -->
+<script id="city-data" type="text/x-handlebars-template">
+  {{#each cities}}
+    <div id="city-img">
+      {{ cityimg }}
+    </div>
+    <div id="city-name">
+      <h3> City: {{ cityname }} </h3>
+    </div>
+    <div id="city-temp">
+      <h4>Temperature: {{ temperature }} </h4>
+    </div>
+    <div id="city-bio">
+      <h5> {{ bio }} </h5>
+    </div>
+  {{/each}}
+</script>
