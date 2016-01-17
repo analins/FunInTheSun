@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcryptjs = require('bcryptjs');
 var crypto = require('crypto');
+var citySchema = require('./city');
 
 var UserSchema = mongoose.Schema({
   username: {type: String},
@@ -9,8 +10,8 @@ var UserSchema = mongoose.Schema({
   name: {first: String, last: String},
   lastname: {type: String},
   cities: {
-    main: CitySchema,
-    favorites: [CitySchema]
+    main: String,
+    favorites: [citySchema]
   }
 });
 

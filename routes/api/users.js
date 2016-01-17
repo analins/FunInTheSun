@@ -29,7 +29,7 @@ router.post('/authenticate', function (req, res) {
       dbUser.authenticate(req.body.password, function (err, isMatch) {
         if (isMatch) {
           dbUser.setToken(err, function () {
-            res.json({description: 'success'. token: dbUser.token});
+            res.json({description: 'success', token: dbUser.token});
           });
         }
       });
