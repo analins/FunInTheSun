@@ -29,3 +29,20 @@
     </div>
   {{/each}}
 </script>
+
+<script id="user-profile" type="text/x-handlebars-template">
+  {{#each users}}
+    <div id="first-name">
+      {{ name: first }}
+    </div>
+    <div id="last-name">
+      {{ name: last }}
+    </div>
+    <div id="username">
+      {{ name: username }}
+    </div>
+    <div id="password">
+      {{ password }}
+    </div>
+  {{/each}}
+</script>
