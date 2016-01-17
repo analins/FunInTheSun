@@ -1,3 +1,7 @@
+// -------------------------------------
+// ****** MODULES & MIDDLEWARE ******
+// -------------------------------------
+
 var express = require('express');
 var app = express();
 
@@ -6,33 +10,42 @@ app.use( morgan('dev') );
 
 require('dotenv').load();
 
-
-// Public: Set publically accessible directory
 app.use(express.static('./public'));
 
-// Body Parser: Read all the body information
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded());
 
-// Cookies Parser: Read all the Cookie information
 var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
-// Custom middleware to load user
+var loadUser = require('./middlesware/loadUser');
+app.use(loadUser);
 
-
-// EJS: Template Rendering
 app.set('view engine', 'ejs');
-
-// <<< Added By Nat >>> Index View route:  `/`
-var index = require('./routes/index');
-app.use('/', index);
 
 var mongoPath = process.env.MONGOLAB_URI || 'mongodb://localhost/funinthesun';
 var mongoose = require('mongoose');
 mongoose.connect(mongoPath);
 
+// -----------------------
+// ****** ROUTING ******
+// -----------------------
+
+// <<< Added By Nat >>> Index View route:  `/`
+var index = require('./routes/index');
+app.use('/', index);
+
+var users = require('./routes/api/users');
+app.use('/api/users', users);
+
+var userIndex = require('./routes/users/profile');
+app.use('/user', profile);
+
+// -----------------------
+// ****** LISTEN ******
+// -----------------------
+
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
-  console.log('listening', port);
+  console.log('listening on ' + port);
 });
