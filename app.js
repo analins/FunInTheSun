@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded());
 var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
-var loadUser = require('./middlesware/loadUser');
+var loadUser = require('./middleware/loadUser');
 app.use(loadUser);
 
 app.set('view engine', 'ejs');

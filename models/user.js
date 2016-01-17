@@ -9,8 +9,8 @@ var UserSchema = mongoose.Schema({
   name: {first: String, last: String},
   lastname: {type: String},
   cities: {
-    main: citySchema,
-    favorites: [citySchema]
+    main: CitySchema,
+    favorites: [CitySchema]
   }
 });
 
