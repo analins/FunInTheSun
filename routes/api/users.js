@@ -4,17 +4,17 @@ var User = require('../../models/user');
 var getCityData = require('../../lib/comparison.js');
 // router.get('/best', getCityData);/
 
-// router.get('/', function (req, res) {
-//   User.find({}, function (err, dbUsers) {
-//     res.json({users: dbUsers});
-//   });
-// });
+router.get('/', function (req, res) {
+  User.findById(req.user._id, function (err, dbUser) {
+    res.json(dbUser);
+  });
+});
 
 router.post('/', function (req, res) {
   var newUser = new User(req.body.user);
   newUser.save(function (err, dbUser) {
-    res.json(dbUser);
-    res.redirect('/user');
+    //res.json(dbUser);
+    res.redirect('/');
   });
 });
 
@@ -36,7 +36,7 @@ router.post('/authenticate', function (req, res) {
             res.json({description: 'success', token: dbUser.token});
 
           });
-          res.redirect('/user');
+          //res.redirect('/user');
         }
       });
     } else {
@@ -45,5 +45,24 @@ router.post('/authenticate', function (req, res) {
   });
 });
 
+//ADD/REMOVE CITY ROUTES
+
+router.post('/cities', function (req, res) {
+  if (req.user) {
+    req.user.cities.favorites.push(req.body.user);
+    req.user.save(function (err, dbUser) {
+      res.json(dbUser);
+    });
+  }
+});
+
+router.delete('/cities/:id', function (req, res) {
+  console.log('deleting');
+  User.cities.favorites.findByIdAndRemove(req.params.id, function (err) {
+    if (err) {res.status(500).end();}
+    res.status(204).end();
+  });
+
+});
 
 module.exports = router;
