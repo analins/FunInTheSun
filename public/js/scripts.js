@@ -85,4 +85,5 @@ function getCities(callback) {
 $(function () {
   setCreateUserFormHandler();
   setLogInFormHandler();
+   $('.modal-trigger').leanModal();
 });
