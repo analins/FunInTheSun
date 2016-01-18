@@ -1,11 +1,11 @@
 console.log('loaded!!');
 
-function DirectionsResults() {
-    $.getJSON('https://maps.googleapis.com/maps/api/directions/json?origin=19060&destination=11226&callback=?', function(data){
-      renderDirections(data);
-      console.log(data);
-    });
-  }
+// function DirectionsResults() {
+//     $.getJSON('https://maps.googleapis.com/maps/api/directions/json?origin=19060&destination=11226&callback=?', function(data){
+//       renderDirections(data);
+//       console.log(data);
+//     });
+//   }
 
 
 function renderDirections(data) {
