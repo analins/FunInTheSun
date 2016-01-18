@@ -1,0 +1,20 @@
+
+
+
+/*PRINT STYLES*/
+/*@media screen{
+  .printable-area {
+    display: none;
+  }
+}
+
+@media print {
+
+ .printable-area {
+   display: block;
+ }
+ .container {
+   display: none;
+ }
+
+}*/
