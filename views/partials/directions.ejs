@@ -1,0 +1,19 @@
+
+<a href="#directions-modal" class="modal-trigger">Get Directions</a>
+
+<div id="directions-modal" class="modal">
+    <div class="modal-content">
+
+        <h4>Directions to {{routes.legs.end_address}} </h4>
+        <h5>Distance: {{routes.legs.distance.text}}</h5><h5>Travel Time:{{routes.legs.duration.text}} %></h5>
+        <ol>
+          {{#each}}
+          <li>{{routes.legs.steps.html_instructions}}</li>
+          {{/each}}
+        </ol>
+            <div class="modal-footer">
+              <a href="#" id="print" class=" modal-action modal-close"><i class="medium material-icons">print</i></a>
+            </div>
+
+    </div>
+</div>
