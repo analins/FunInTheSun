@@ -8,6 +8,31 @@
   </head>
   <body>
     <h1><%= user.username %></h1>
+    <button id="edit-user" href="#edit-modal" class="modal-trigger waves-effect waves-teal btn-flat">Edit</button>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h4>Sign Up!</h4>
+            <form id="sign-up">
+                <label for="username"> username: </label>
+                <input type="text" name="username" placeholder="User Name">
+                <label for="password">password:</label>
+                <input type="password" name="password" placeholder="Password">
+                <label for="firstname">first name: </label>
+                <input type="text" name="firstname" placeholder="First Name">
+                <label for="lastname">last name: </label>
+                <input type="text" name="lastname" placeholder="Last Name">
+                <label for="city">current city: </label>
+                <input type="text" name="city" placeholder="city">
+                <label for="zipcode">zipcode: </label>
+                <input type="text" name="zipcode" placeholder="zipcode">
+
+                <div class="modal-footer">
+                    <input type="submit" placeholder="Sign Up" class=" modal-action modal-close waves-effect waves-green btn-flat">
+                </div>
+            </form>
+        </div>
+    </div>
 
     <section id="render-user">
 

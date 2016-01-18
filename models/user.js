@@ -7,10 +7,16 @@ var UserSchema = mongoose.Schema({
   username: {type: String, required: true, index: { unique: true } },
   password: {type: String, required: true},
   token: {type: String},
-  firstname: {type: String},
-  lastname: {type: String},
+  name: {
+    first: {type: String},
+    last: {type: String}
+  },
   cities: {
-    main: String,
+    main: { //citySchema
+      name: {type: String},
+      nickname: {type: String},
+      zipcode: {type: String}
+    },
     favorites: [citySchema]
   }
 });
@@ -25,7 +31,7 @@ UserSchema.pre('save', function (next) {
 
 UserSchema.methods.authenticate = function (passwordTry, callback) {
   bcryptjs.compare(passwordTry, this.password, function (err, isMatch) {
-    if (err) {return callback(err)}
+    if (err) {return callback(err);}
     callback(null, isMatch);
   });
 };
@@ -35,10 +41,10 @@ UserSchema.methods.setToken = function (err, callback) {
   crypto.randomBytes(256, function (err, rawToken) {
     scope.token = rawToken;
     scope.save(function () {
-      if (err) {return callback(err)};
+      if (err) {return callback(err);}
       callback();
     });
-  })
-}
+});
+};
 
 module.exports = mongoose.model('User', UserSchema);
