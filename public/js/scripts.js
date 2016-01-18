@@ -37,12 +37,16 @@ function setCreateUserFormHandler(){
     var cityText = cityField.val();
     cityField.val('');
 
+    var nicknameField = $(this).find('input[name="nickname"]')
+    var nicknameText = nicknameField.val();
+    nicknameField.val('');
+
     var zipcodeField = $(this).find('input[name="zipcode"]');
     var zipcodeText = zipcodeField.val();
     zipcodeField.val('');
 
 
-    var userData = {username: usernameText, password: passwordText, firstname: firstnameText, lastname: lastnameText, main: cityText, zipcode: zipcodeText};
+    var userData = {username: usernameText, password: passwordText, name.first: firstnameText, name.last: lastnameText, cities.main.name: cityText, cities.main.nickname: nicknameText, cities.main.zipcode: zipcodeText};
 
     console.log(userData);
 
@@ -86,6 +90,13 @@ function setLogInFormHandler() {
       console.log('Token:', $.cookie('token') );
     });
   });
+}
+
+//LOGOUT FUNCTION TO ADD TO MAIN SCRIPTS
+function logOut() {
+  $('.logout').on('click', function () {
+    $.removeCookie('token');
+  })
 }
 
 // Update a User

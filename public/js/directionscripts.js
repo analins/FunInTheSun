@@ -24,6 +24,8 @@ function printDirections() {
   });
 }
 
+
+
 $(function () {
   DirectionsResults();
   printDirections();
