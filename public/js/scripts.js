@@ -1,4 +1,4 @@
-console.log(.....loaded.....);
+console.log('.....loaded.....');
 
 // Create a new user in db
 function createUser(userData, callback){
@@ -23,12 +23,13 @@ function setCreateUserFormHandler(){
 
     var passwordField = $(this).find('input[name="password"]');
     var passwordText = passwordField.val();
-    passwordField.val();
+    passwordField.val('');
 
-    var userData = {username: usernameText, passwordText};
+    var userData = {username: usernameText, password: passwordText};
+    console.log(userData);
 
     createUser(userData, function(user){
-      updateUsersAndView();
+      console.log(user);
     });
   });
 }
@@ -52,7 +53,7 @@ function setLogInFormHandler() {
 
     var usernameField = $(this).find('input[name="username"]');
     var usernameText = usernameField.val();
-    usernameField.varl('');
+    usernameField.val('');
 
     var passwordField = $(this).find('input[name="password"]');
     var passwordText = passwordField.val();
@@ -62,7 +63,7 @@ function setLogInFormHandler() {
       logInUser(usernameText, passwordText, function(data) {
 
       $.cookie('token', data.token);
-      updateUsersAndViews();
+      console.log('Token:', $.cookie('token') );
     });
   });
 }
@@ -80,3 +81,8 @@ function getCities(callback) {
     }
   });
 }
+
+$(function () {
+  setCreateUserFormHandler();
+  setLogInFormHandler();
+});

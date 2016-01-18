@@ -38,8 +38,8 @@ app.use('/', index);
 var users = require('./routes/api/users');
 app.use('/api/users', users);
 
-// var userIndex = require('./routes/users/profile');
-// app.use('/user', profile);
+var profile = require('./routes/user/profile');
+app.use('/user', profile);
 
 // -----------------------
 // ****** LISTEN ******
