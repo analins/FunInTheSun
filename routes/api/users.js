@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../../models/user');
-var getCityData = require('../../lib/comparison.js');
-// router.get('/best', getCityData);/
 
 router.get('/', function (req, res) {
   User.findById(req.user._id, function (err, dbUser) {
