@@ -12,7 +12,7 @@ router.use(function (req, res, next) {
 });
 
 router.get('/',  function (req, res) {
-  res.render('profile', {username: req.user.username}); //Not sure what is supposed to be here, but key AND value needed {username: req.user.username}???
+  res.render('user/profile', {user: req.user});
 });
 
 var getCityData = require('../../lib/comparison.js');
