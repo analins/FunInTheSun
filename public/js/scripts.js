@@ -25,7 +25,27 @@ function setCreateUserFormHandler(){
     var passwordText = passwordField.val();
     passwordField.val('');
 
+<<<<<<< HEAD
     var userData = {username: usernameText, password: passwordText};
+=======
+    var firstnameField = $(this).find('input[name="firstname"]');
+    var firstnameText = firstnameField.val();
+    firstnameField.val('');
+
+    var lastnameField = $(this).find('input[name="lastname"]');
+    var lastnameText = lastnameField.val();
+    lastnameField.val('');
+
+    var cityField = $(this).find('input[name="city"]');
+    var cityText = cityField.val();
+    cityField.val('');
+
+    var zipcodeField = $(this).find('input[name="zipcode"]');
+    var zipcodeText = zipcodeField.val();
+    zipcodeField.val('');
+
+    var userData = {username: usernameText, password: passwordText, firstname: firstnameText, lastname: lastnameText, main: cityText, zipcode: zipcodeText};
+>>>>>>> 6afddc1... updates main: cityText in setCreateUserFormHandler
     console.log(userData);
 
     createUser(userData, function(user){
@@ -59,7 +79,7 @@ function setLogInFormHandler() {
     var passwordText = passwordField.val();
     passwordField.val('');
 
-    var userData = {username: usernameText, password: passwordText};
+    var userData = {username: usernameText, password: passwordText, main: cityText};
       logInUser(usernameText, passwordText, function(data) {
 
       $.cookie('token', data.token);
