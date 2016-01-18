@@ -44,8 +44,12 @@ function setCreateUserFormHandler(){
     var zipcodeText = zipcodeField.val();
     zipcodeField.val('');
 
+<<<<<<< HEAD
     var userData = {username: usernameText, password: passwordText, firstname: firstnameText, lastname: lastnameText, main: cityText, zipcode: zipcodeText};
 >>>>>>> 6afddc1... updates main: cityText in setCreateUserFormHandler
+=======
+    var userData = {username: usernameText, password: passwordText, firstname: firstnameText, lastname: lastnameText, cities(main): cityText, zipcode: zipcodeText};
+>>>>>>> 0b466dc... modifies setCreateUserFormHandler
     console.log(userData);
 
     createUser(userData, function(user){
@@ -79,7 +83,7 @@ function setLogInFormHandler() {
     var passwordText = passwordField.val();
     passwordField.val('');
 
-    var userData = {username: usernameText, password: passwordText, main: cityText};
+    var userData = {username: usernameText, password: passwordText, firstname: firstnameText, lastname: lastnameText, main: cityText, zipcode: zipcodeText};
       logInUser(usernameText, passwordText, function(data) {
 
       $.cookie('token', data.token);
@@ -88,6 +92,33 @@ function setLogInFormHandler() {
   });
 }
 
+
+
+<<<<<<< HEAD
+=======
+function getUser(callback) {
+  $.ajax( {
+    url: '/api/users/id',
+    success: function(data) {
+      var user = data.user;
+      callback(user);
+    }
+  });
+}
+
+// Update a User
+function updateUser(userData, callback) {
+  $.ajax( {
+    method: 'patch',
+    url: '/api/users',
+    data: {user: userData},
+    success: function(data) {
+      callback(data);
+    }
+  });
+}
+
+>>>>>>> 0b466dc... modifies setCreateUserFormHandler
 
 function getCities(callback) {
   callback = callback || function(){};
