@@ -4,10 +4,10 @@ var crypto = require('crypto');
 var citySchema = require('./city');
 
 var UserSchema = mongoose.Schema({
-  username: {type: String},
-  password: {type: String},
+  username: {type: String required: true, index: { unique: true } },
+  password: {type: String, required: true},
   token: {type: String},
-  name: {first: String, last: String},
+  firstname: {type: String}, 
   lastname: {type: String},
   cities: {
     main: String,
