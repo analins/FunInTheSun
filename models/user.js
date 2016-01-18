@@ -7,10 +7,8 @@ var UserSchema = mongoose.Schema({
   username: {type: String, required: true, index: { unique: true } },
   password: {type: String, required: true},
   token: {type: String},
-  name: [{
-    first: {type: String},
-    lastname: {type: String}
-  }],
+  firstname: {type: String},
+  lastname: {type: String},
   cities: {
     main: String,
     favorites: [citySchema]
