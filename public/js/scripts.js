@@ -23,10 +23,9 @@ function setCreateUserFormHandler(){
     createUser(formObj, function(user){
       console.log(user);
     });
-
-
   });
 }
+
 
 // Log in an existing user
 function logInUser(usernameAttempt, passwordAttempt, callback){
@@ -64,7 +63,7 @@ function setLogInFormHandler() {
   });
 }
 
-//LOGOUT FUNCTION TO ADD TO MAIN SCRIPTS
+//LOGOUT FUNCTION
 function logOut() {
   $('.logout').on('click', function () {
     $.removeCookie('token');
@@ -123,7 +122,14 @@ function getCities(callback) {
   });
 }
 
-
+//SHOW ELEMENTS UPON LOGIN
+function showHideElements() {
+  if ($.cookie('token')) {
+    $('.profile-content').show();
+  } else {
+    $('.profile-content').hide();
+  }
+}
 
 $(function () {
   setCreateUserFormHandler();
