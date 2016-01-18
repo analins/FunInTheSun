@@ -5,7 +5,7 @@ function createUser(userData, callback){
   $.ajax({
     method: 'post',
     url: '/api/users',
-    data: {user: userData},
+    data: userData,
     success: function(data){
       callback(data);
     }
@@ -17,42 +17,14 @@ function setCreateUserFormHandler(){
   $('form#sign-up').on('submit', function(e) {
     e.preventDefault();
 
-    var usernameField = $(this).find('input[name="username"]');
-    var usernameText = usernameField.val();
-    usernameField.val('');
+    var formObj = $(this).serializeObject();
+    console.log(formObj);
 
-    var passwordField = $(this).find('input[name="password"]');
-    var passwordText = passwordField.val();
-    passwordField.val('');
-
-    var firstnameField = $(this).find('input[name="firstname"]');
-    var firstnameText = firstnameField.val();
-    firstnameField.val('');
-
-    var lastnameField = $(this).find('input[name="lastname"]');
-    var lastnameText = lastnameField.val();
-    lastnameField.val('');
-
-    var cityField = $(this).find('input[name="city"]');
-    var cityText = cityField.val();
-    cityField.val('');
-
-    var nicknameField = $(this).find('input[name="nickname"]')
-    var nicknameText = nicknameField.val();
-    nicknameField.val('');
-
-    var zipcodeField = $(this).find('input[name="zipcode"]');
-    var zipcodeText = zipcodeField.val();
-    zipcodeField.val('');
-
-
-    var userData = {username: usernameText, password: passwordText, name.first: firstnameText, name.last: lastnameText, cities.main.name: cityText, cities.main.nickname: nicknameText, cities.main.zipcode: zipcodeText};
-
-    console.log(userData);
-
-    createUser(userData, function(user){
+    createUser(formObj, function(user){
       console.log(user);
     });
+
+
   });
 }
 
@@ -96,7 +68,7 @@ function setLogInFormHandler() {
 function logOut() {
   $('.logout').on('click', function () {
     $.removeCookie('token');
-  })
+});
 }
 
 // Update a User

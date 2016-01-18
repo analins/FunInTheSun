@@ -11,19 +11,19 @@
     <h4>Sign Up!</h4>
     <form id="sign-up">
       <label for="username"> username: </label>
-      <input type="text" name="username" placeholder="User Name">
+      <input type="text" name="user[username]" placeholder="User Name">
       <label for="password">password:</label>
-      <input type="password" name="password" placeholder="Password">
+      <input type="password" name="user[password]" placeholder="Password">
       <label for="firstname">first name: </label>
-      <input type="text" name="firstname" placeholder="First Name">
+      <input type="text" name="user[name][first]" placeholder="First Name">
       <label for="lastname">last name: </label>
-      <input type="text" name="lastname" placeholder="Last Name">
+      <input type="text" name="user[name][last]" placeholder="Last Name">
       <label for="city">current city: </label>
-      <input type="text" name="city" placeholder="city">
+      <input type="text" name="user[cities][main][name]" placeholder="city">
       <label for="city">location nickname (optional): </label>
-      <input type="text" name="nickname" placeholder="nickname">
+      <input type="text" name="user[cities][main][nickname]" placeholder="nickname">
       <label for="zipcode">zipcode: </label>
-      <input type="text" name="zipcode" placeholder="zipcode">
+      <input type="text" name="user[cities][main][zipcode]" placeholder="zipcode">
 
 
 
