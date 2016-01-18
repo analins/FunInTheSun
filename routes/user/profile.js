@@ -15,4 +15,7 @@ router.get('/',  function (req, res) {
   res.render('profile', {username});
 })
 
+var getCityData = require('../../lib/comparison.js');
+router.get('/best', getCityData);
+
 module.exports = router;
