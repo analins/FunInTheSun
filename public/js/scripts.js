@@ -115,6 +115,18 @@ function setLogInFormHandler() {
   });
 }
 
+// Update a User
+function updateUser(userData, callback) {
+  $.ajax( {
+    method: 'patch',
+    url: '/api/users',
+    data: {user: userData},
+    success: function(data) {
+      callback(data);
+    }
+  });
+}
+
 
 
 <<<<<<< HEAD
