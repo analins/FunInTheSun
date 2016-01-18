@@ -31,7 +31,6 @@ mongoose.connect(mongoPath);
 // ****** ROUTING ******
 // -----------------------
 
-// <<< Added By Nat >>> Index View route:  `/`
 var index = require('./routes/index');
 app.use('/', index);
 
