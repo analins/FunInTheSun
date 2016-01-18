@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../../models/user');
+var request = require('request'); // for server-side HTTP requests
 
 router.get('/', function (req, res) {
   User.findById(req.user._id, function (err, dbUser) {
@@ -43,7 +44,9 @@ router.post('/authenticate', function (req, res) {
   });
 });
 
-//ADD/REMOVE CITY ROUTES
+
+
+//Cities Routes -------------
 
 router.post('/cities', function (req, res) {
   if (req.user) {
@@ -62,5 +65,26 @@ router.delete('/cities/:id', function (req, res) {
   });
 
 });
+
+
+router.get('/cities/:id/directions', function (req, res) {
+  console.log('Getting Directions...');
+  city = User.cities.favorites.findById(req.params.id, function (data) {
+      city.zipcode = "19060";
+      req.zipcode = "11226";
+      url= "https://maps.googleapis.com/maps/api/directions/json?origin=" + city.zipcode + "&destination=" + req.zipcode;
+      request(url, function(err, response, body){
+          res.json(JSON.parse(body));
+      });
+  });
+
+});
+
+
+//Rank the cities by conditions and return an array of cities
+var getCityData = require('../../lib/comparison.js');
+router.get('/cities/best', getCityData);
+
+
 
 module.exports = router;
