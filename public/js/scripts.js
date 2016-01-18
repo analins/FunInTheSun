@@ -26,8 +26,11 @@ function setCreateUserFormHandler(){
     passwordField.val('');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     var userData = {username: usernameText, password: passwordText};
 =======
+=======
+>>>>>>> 3b3c421... adds firstname, lastname, city, zipcode to setCreateUserFormHandler
     var firstnameField = $(this).find('input[name="firstname"]');
     var firstnameText = firstnameField.val();
     firstnameField.val('');
@@ -45,11 +48,15 @@ function setCreateUserFormHandler(){
     zipcodeField.val('');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     var userData = {username: usernameText, password: passwordText, firstname: firstnameText, lastname: lastnameText, main: cityText, zipcode: zipcodeText};
 >>>>>>> 6afddc1... updates main: cityText in setCreateUserFormHandler
 =======
     var userData = {username: usernameText, password: passwordText, firstname: firstnameText, lastname: lastnameText, cities(main): cityText, zipcode: zipcodeText};
 >>>>>>> 0b466dc... modifies setCreateUserFormHandler
+=======
+    var userData = {username: usernameText, password: passwordText, name: [first: firstnameText], name: [lastname: lastnameText], city: cityText, zipcode: zipcodeText};
+>>>>>>> 3b3c421... adds firstname, lastname, city, zipcode to setCreateUserFormHandler
     console.log(userData);
 
     createUser(userData, function(user){
@@ -82,6 +89,22 @@ function setLogInFormHandler() {
     var passwordField = $(this).find('input[name="password"]');
     var passwordText = passwordField.val();
     passwordField.val('');
+
+    var firstnameField = $(this).find('input[name="firstname"]') ;
+    var firstnameText = firstnameField.val();
+    firstnameField.val('');
+
+    var lastnameField = $(this).find('input[name="lastname"]') ;
+    var lastnameText = lastnameField.val();
+    lastnameField.val('');
+
+    var cityField = $(this).find('input[name="city"]') ;
+    var cityText = cityField.val();
+    cityField.val('');
+
+    var zipcodeField = $(this).find('input[name="zipcode"]') ;
+    var zipcodeText = zipcodeField.val();
+    zipcodeField.val('');
 
     var userData = {username: usernameText, password: passwordText, firstname: firstnameText, lastname: lastnameText, main: cityText, zipcode: zipcodeText};
       logInUser(usernameText, passwordText, function(data) {
@@ -132,6 +155,8 @@ function getCities(callback) {
     }
   });
 }
+
+
 
 $(function () {
   setCreateUserFormHandler();
