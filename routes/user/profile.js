@@ -14,4 +14,11 @@ router.get('/',  function (req, res) {
   res.render('user/profile', {user: req.user});
 });
 
+router.post('/', function(req, res) {
+  var newUser = new User(req.body.user);
+  newUser.save(function(err, databaseUser) {
+    res.json(databaseUser);
+  });
+});
+
 module.exports = router;
