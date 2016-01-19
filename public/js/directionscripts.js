@@ -1,11 +1,11 @@
 console.log('loaded!!');
 
-// function DirectionsResults() {
-//     $.getJSON('https://maps.googleapis.com/maps/api/directions/json?origin=19060&destination=11226&callback=?', function(data){
-//       renderDirections(data);
-//       console.log(data);
-//     });
-//   }
+function directionsResults() {
+    $.getJSON('https://maps.googleapis.com/maps/api/directions/json?origin=19060&destination=11226&callback=?', function(data){
+      renderDirections(data);
+      console.log(data);
+    });
+  }
 
 
 function renderDirections(data) {
@@ -23,10 +23,26 @@ function printDirections() {
     window.print();
   });
 }
+function directionsFormListener () {
+    form = $('#directions-form');
+    form.on('submit', function(e){
+        e.preventDefault();
+
+        $.ajax({
+            method: 'get',
+            data: {zip: form.find('#form-zip').val()},
+            url: '/api/users/cities/directions',
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+}
 
 
 
 $(function () {
-  DirectionsResults();
-  printDirections();
+  // directionsResults();
+  // printDirections();
+  directionsFormListener();
 });

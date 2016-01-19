@@ -67,16 +67,14 @@ router.delete('/cities/:id', function (req, res) {
 });
 
 
-router.get('/cities/:id/directions', function (req, res) {
+router.get('/cities/directions', function (req, res) {
   console.log('Getting Directions...');
-  city = User.cities.favorites.findById(req.params.id, function (data) {
-      city.zipcode = "19060";
-      req.zipcode = "11226";
-      url= "https://maps.googleapis.com/maps/api/directions/json?origin=" + city.zipcode + "&destination=" + req.zipcode;
-      request(url, function(err, response, body){
-          res.json(JSON.parse(body));
-      });
-  });
+    url= "https://maps.googleapis.com/maps/api/directions/json?origin=" + req.user.cities.main.zipcode + "&destination=" + req.query.zip;
+    console.log(url);
+    request(url, function(err, response, body){
+      res.json(JSON.parse(body));
+    });
+
 
 });
 

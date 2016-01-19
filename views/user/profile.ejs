@@ -7,13 +7,19 @@
 
   </head>
   <body>
+<<<<<<< 10d2c1da71ddf7937bab1d9c847aba61573f7b43
     <% include ./partials/navbar %>
     <div class="container">
       <h1><%= user.username %></h1>
       <% include ./partials/directions %>
 
       <button id="edit-user" href="#edit-modal" class="modal-trigger waves-effect waves-teal btn-flat">Edit</button>
-
+      <form id="directions-form">
+          <input type="text" id="form-zip" placeholder="Zipcode">
+          <input type="submit" value="Go!">
+      </form>
+      <section id="directions-view"></section>
+      <section id="render-user">
       <div id="edit-modal" class="modal">
           <div class="modal-content">
               <h4>Sign Up!</h4>
@@ -35,6 +41,7 @@
               </form>
           </div>
       </div>
+
 
       <section id="render-user">
 
