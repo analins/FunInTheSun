@@ -22,13 +22,9 @@ router.post('/', function(req, res) {
 });
 
 router.patch('/user', function(req, res) {
-  if (req.user) {
-    req.user = req.body.user;
-
-    req.user.save(function(err, databaseUser) {
-      res.json(databaseUser);
-    });
-  }
+  User.findByIdAndUpdate(req.params.id, function(err, databaseUser) {
+    res.json(databaseUser);
+  })
 });
 
 // router.delete('/cities/:id', function (req, res) {
