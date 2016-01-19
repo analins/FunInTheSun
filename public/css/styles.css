@@ -1,5 +1,38 @@
 
+nav {
+  background-color: #ff5722;
+}
 
+.logo {
+  font-size: 1.5em;
+  margin-left: .5em;
+}
+
+.user-manager {
+  text-align: center;
+  width: 45%;
+  margin: 3em auto;
+  background-color: #ffff8d;
+  padding: .5em;
+  color: #ff7043;
+}
+
+.user-manager a {
+  color: #ff7043;
+}
+
+#log-in {
+  margin: 2em 0;
+}
+
+.login-body {
+  margin-bottom: 2em;
+
+}
+#login-btn {
+  width: 5em;
+  font-size: 1.2em;
+}
 
 /*PRINT STYLES*/
 /*@media screen{
@@ -7,9 +40,7 @@
     display: none;
   }
 }
-
 @media print {
-
  .printable-area {
    display: block;
  }

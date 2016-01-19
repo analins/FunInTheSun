@@ -134,5 +134,7 @@ function showHideElements() {
 $(function () {
   setCreateUserFormHandler();
   setLogInFormHandler();
+  logOut();
    $('.modal-trigger').leanModal();
+    $(".button-collapse").sideNav();
 });

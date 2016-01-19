@@ -33,9 +33,9 @@ router.post('/authenticate', function (req, res) {
         if (isMatch) {
           dbUser.setToken(err, function () {
             res.json({description: 'success', token: dbUser.token});
-
+            // res.redirect('/user');
           });
-          res.redirect('/user');
+
         }
       });
     } else {
