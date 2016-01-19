@@ -83,6 +83,19 @@ function updateUser(userData, callback) {
 }
 
 
+// Edit user form
+function setEditUserFormHandler(){
+  $('form#edit-user').on('submit', function(e) {
+    e.preventDefault();
+
+    var formObj = $(this).serializeObject();
+    console.log(formObj);
+
+    updateUser(formObj, function(user){
+      console.log(user);
+    });
+  });
+}
 
 
 function getUser(callback) {
@@ -95,17 +108,17 @@ function getUser(callback) {
   });
 }
 
-// Update a User
-function updateUser(userData, callback) {
-  $.ajax( {
-    method: 'patch',
-    url: '/api/users',
-    data: {user: userData},
-    success: function(data) {
-      callback(data);
-    }
-  });
-}
+// // Update a User
+// function updateUser(userData, callback) {
+//   $.ajax( {
+//     method: 'patch',
+//     url: '/api/users',
+//     data: {user: userData},
+//     success: function(data) {
+//       callback(data);
+//     }
+//   });
+// }
 
 
 
@@ -134,6 +147,7 @@ function showHideElements() {
 $(function () {
   setCreateUserFormHandler();
   setLogInFormHandler();
+  setEditUserFormHandler()
   logOut();
    $('.modal-trigger').leanModal();
     $(".button-collapse").sideNav();
