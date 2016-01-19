@@ -14,7 +14,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js" charset="utf-8"></script>
 <script src="/materialize/js/materialize.min.js" charset="utf-8"></script>
-<!-- <script src="/js/directionscripts.js" charset="utf-8"></script> -->
+<script src="/js/directionscripts.js" charset="utf-8"></script>
 <script src="/js/scripts.js" charset="utf-8"></script>
 
 
@@ -73,11 +73,11 @@
 </script>
 
 <script id="directions" type="text/x-handlebars-template">
-  <h4>Directions to {{routes.legs.end_address}} </h4>
-  <h5>Distance: {{routes.legs.distance.text}}</h5><h5>Travel Time:{{routes.legs.duration.text}} %></h5>
+  <h4>Directions to {{routes.[0].legs.[0].end_address}} </h4>
+  <h5>Distance: {{routes.[0].legs.[0].distance.text}}</h5><h5>Travel Time:{{routes.[0].legs.[0].duration.text}} %></h5>
   <ol>
-    {{#each}}
-    <li>{{routes.legs.steps.html_instructions}}</li>
+    {{#each routes.[0].legs.[0].steps}}
+    <li>{{{this.html_instructions}}}</li>
     {{/each}}
   </ol>
 </script>

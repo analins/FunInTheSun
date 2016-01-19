@@ -7,17 +7,12 @@
 
   </head>
   <body>
-
-    <!-- <% include ./partials/navbar %> -->
+    <% include ../partials/navbar %>
     <div class="container">
       <h1><%= user.username %></h1>
-      <% include ./partials/directions %>
+      <% include ../partials/directions %>
 
       <button id="edit-user" href="#edit-modal" class="modal-trigger waves-effect waves-teal btn-flat">Edit</button>
-      <form id="directions-form">
-          <input type="text" id="form-zip" placeholder="Zipcode">
-          <input type="submit" value="Go!">
-      </form>
       <section id="directions-view"></section>
       <section id="render-user">
       <div id="edit-modal" class="modal">
