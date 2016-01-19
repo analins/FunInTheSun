@@ -195,7 +195,7 @@ $(function () {
     setCreateUserFormHandler();
     setLogInFormHandler();
     setEditUserFormHandler();
-    setObtainNewCitiesFormHandler();
+    setSaveNewCitiesFormHandler();
     logOut();
     $('.modal-trigger').leanModal();
     $(".button-collapse").sideNav();
