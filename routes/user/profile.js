@@ -24,14 +24,13 @@ router.post('/', function(req, res) {
 
 router.patch('/edit', function(req, res) {
   User.findByIdAndUpdate(req.params.id, req.body.data, {new: true}, function(err, databaseUser) {
-
     res.json(databaseUser);
   })
 });
 
-// router.delete('/cities/:id', function (req, res) {
+// router.delete('/User/:id', function (req, res) {
 //   console.log('deleting');
-//   User.cities.favorites.findByIdAndRemove(req.params.id, function (err) {
+//   User.findByIdAndRemove(req.params.id, function (err) {
 //     if (err) {res.status(500).end();}
 //     res.status(204).end();
 //   });
