@@ -20,9 +20,11 @@ function setCreateUserFormHandler(){
         var formObj = $(this).serializeObject();
         console.log(formObj);
 
+        $('#sign-up-modal').closeModal();
         createUser(formObj, function(user){
-            console.log(user);
+            console.log("Form response:", user);
         });
+
     });
 }
 

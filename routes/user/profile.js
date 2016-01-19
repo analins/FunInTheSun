@@ -16,16 +16,16 @@ router.get('/',  function (req, res) {
 });
 
 router.post('/', function(req, res) {
-  var newUser = new User(req.body.user);
+  var newUser = new User(req.body);
   newUser.save(function(err, databaseUser) {
     res.json(databaseUser);
   });
 });
 
 router.patch('/edit', function(req, res) {
-  User.findByIdAndUpdate(req.params.id, req.body.data, {new: true}, function(err, databaseUser) {
+  User.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, databaseUser) {
     res.json(databaseUser);
-  })
+    });
 });
 
 // router.delete('/User/:id', function (req, res) {

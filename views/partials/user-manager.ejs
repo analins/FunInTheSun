@@ -7,50 +7,49 @@
 </form> -->
 <!-- Signup Modal -->
 <div id="sign-up-modal" class="modal">
-  <div class="modal-content">
-    <h4>Sign Up!</h4>
-    <form id="sign-up">
-      <div class="row">
-        <div class="col s6">
-          <!-- <label for="username"> username: </label> -->
-          <input type="text" name="user[username]" placeholder="User Name">
-        </div>
-        <div class="col s6">
-          <!-- <label for="password">password:</label> -->
-          <input type="password" name="user[password]" placeholder="Password">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s6">
-          <!-- <label for="firstname">first name: </label> -->
-          <input type="text" name="user[name][first]" placeholder="First Name">
-        </div>
-        <div class="col s6">
-          <!-- <label for="lastname">last name: </label> -->
-          <input type="text" name="user[name][last]" placeholder="Last Name">
-        </div>
-      </div>
-      <div class="row">
-          <!-- <label for="city">current city: </label> -->
-          <input type="text" name="user[cities][main][name]" placeholder="city">
-        </div>
-      <div class="row">
-        <div class="col s6">
-          <!-- <label for="nickname">location nickname (optional): </label> -->
-          <input type="text" name="user[cities][main][nickname]" placeholder="location nickname (optional)">
-        </div>
-        <div class="col s6">
-          <!-- <label for="zipcode">zipcode: </label> -->
-          <input type="text" name="user[cities][main][zipcode]" placeholder="zipcode">
-        </div>
-      </div>
-
-      </div>
-      <div class="modal-footer">
-        <input type="submit" placeholder="Sign Up" class=" modal-action modal-close waves-effect waves-green btn-flat">
-      </div>
-    </form>
-  </div>
+    <div class="modal-content">
+        <h4>Sign Up!</h4>
+        <form id="sign-up">
+            <div class="row">
+                <div class="col s6">
+                    <!-- <label for="username"> username: </label> -->
+                    <input type="text" name="username" placeholder="User Name">
+                </div>
+                <div class="col s6">
+                    <!-- <label for="password">password:</label> -->
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <!-- <label for="firstname">first name: </label> -->
+                    <input type="text" name="name[first]" placeholder="First Name">
+                </div>
+                <div class="col s6">
+                    <!-- <label for="lastname">last name: </label> -->
+                    <input type="text" name="name[last]" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="row">
+                <!-- <label for="city">current city: </label> -->
+                <input type="text" name="cities[main][name]" placeholder="city">
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <!-- <label for="nickname">location nickname (optional): </label> -->
+                    <input type="text" name="cities[main][nickname]" placeholder="location nickname (optional)">
+                </div>
+                <div class="col s6">
+                    <!-- <label for="zipcode">zipcode: </label> -->
+                    <input type="text" name="cities[main][zipcode]" placeholder="zipcode">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="Sign Up" class="waves-effect waves-green btn-flat">
+            </div>
+        </form>
+    </div>
+</div>
 
 
 
