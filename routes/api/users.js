@@ -9,10 +9,16 @@ router.get('/', function (req, res) {
   });
 });
 
+router.get('/all', function (req, res) {
+  User.find({}, function (err, dbUser) {
+    res.json(dbUser);
+  });
+});
+
 router.post('/', function (req, res) {
   var newUser = new User(req.body.user);
   newUser.save(function (err, dbUser) {
-    //res.json(dbUser);
+    console.log(dbUser);
     res.redirect('/');
   });
 });
