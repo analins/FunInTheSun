@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var city = require('../../models/city');
+var User = require('../../models/user')
 
 router.use( function (req, res, next) {
   if (!req.user){
@@ -21,8 +22,9 @@ router.post('/', function(req, res) {
   });
 });
 
-router.patch('/user', function(req, res) {
-  User.findByIdAndUpdate(req.params.id, function(err, databaseUser) {
+router.patch('/edit', function(req, res) {
+  User.findByIdAndUpdate(req.params.id, req.body.data, {new: true}, function(err, databaseUser) {
+
     res.json(databaseUser);
   })
 });

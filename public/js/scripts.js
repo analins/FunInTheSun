@@ -76,8 +76,8 @@ function logOut() {
 function updateUser(userData, callback) {
     $.ajax( {
         method: 'patch',
-        url: '/api/users',
-        data: {user: userData},
+        url: '/user/edit',
+        data: userData,
         success: function(data) {
             callback(data);
         }
