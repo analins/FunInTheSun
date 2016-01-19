@@ -59,7 +59,9 @@ function setLogInFormHandler() {
 
       $.cookie('token', data.token);
       console.log('Token:', $.cookie('token') );
+      window.location="/user"
     });
+
   });
 }
 
