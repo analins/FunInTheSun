@@ -35,7 +35,7 @@ router.post('/authenticate', function (req, res) {
             res.json({description: 'success', token: dbUser.token});
 
           });
-          //res.redirect('/user');
+          res.redirect('/user');
         }
       });
     } else {
