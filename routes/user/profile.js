@@ -21,4 +21,23 @@ router.post('/', function(req, res) {
   });
 });
 
+router.patch('/user', function(req, res) {
+  if (req.user) {
+    req.user = req.body.user;
+
+    req.user.save(function(err, databaseUser) {
+      res.json(databaseUser);
+    });
+  }
+});
+
+// router.delete('/cities/:id', function (req, res) {
+//   console.log('deleting');
+//   User.cities.favorites.findByIdAndRemove(req.params.id, function (err) {
+//     if (err) {res.status(500).end();}
+//     res.status(204).end();
+//   });
+//
+// });
+
 module.exports = router;
