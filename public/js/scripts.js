@@ -150,29 +150,7 @@ function saveNewCities(cityData, callback) {
   });
 }
 
-// // Create a new user in db
-// function createUser(userData, callback){
-//     $.ajax({
-//         method: 'post',
-//         url: '/api/users',
-//         data: userData,
-//         success: function(data){
-//             callback(data);
-//         }
-//     });
-// }
 
-// // Update a User
-// function updateUser(userData, callback) {
-//     $.ajax( {
-//         method: 'patch',
-//         url: '/user/edit',
-//         data: userData,
-//         success: function(data) {
-//             callback(data);
-//         }
-//     });
-// }
 
 function setSaveNewCitiesFormHandler(callback) {
   $('form#addcity-form').on('submit', function(e) {
