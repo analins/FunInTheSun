@@ -15,7 +15,7 @@
       <h1><%= user.username %></h1>
       <% include ../partials/directions %>
       <% include ../partials/addcity %>
-
+      <% include ../partials/edituser %>
 
 
 
@@ -24,28 +24,16 @@
       <button id="getCities" class="waves-effect waves-teal btn-flat">Get Cities' Weather</button>
 
       <section id="directions-view"></section>
-      <section id="render-user">
-      <div id="edit-modal" class="modal bottom-sheet">
-          <div class="modal-content">
-              <h4>Edit Your Profile</h4>
-              <form id="edit-user">
-                  <label for="firstname">first name: </label>
-                  <input type="text" name="user[name][first]" placeholder="First Name">
-                  <label for="lastname">last name: </label>
-                  <input type="text" name="user[name][last]" placeholder="Last Name">
-                  <label for="city">current city: </label>
-                  <input type="text" name="user[cities][main][name]" placeholder="city">
-                  <label for="city">location nickname (optional): </label>
-                  <input type="text" name="user[cities][main][nickname]" placeholder="nickname">
-                  <label for="zipcode">zipcode: </label>
-                  <input type="text" name="user[cities][main][zipcode]" placeholder="zipcode">
 
-                  <div class="modal-footer">
-                      <input type="submit" placeholder="Submit Changes" class="modal-action modal-close waves-effect waves-green btn-flat">
-                  </div>
-              </form>
-          </div>
-      </div>
+      <section id="render-cities"></section>
+
+      
+      <section id="render-user">
+
+
+
+
+
 
 
       <section id="render-user">
