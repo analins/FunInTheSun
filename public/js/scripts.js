@@ -203,12 +203,8 @@ $(function () {
     setCreateUserFormHandler();
     setLogInFormHandler();
     setEditUserFormHandler();
-
     setSaveFavCityFormHandler();
-
-    setSaveNewCitiesFormHandler();
     getCurrentWeather();
-
     logOut();
     $('.modal-trigger').leanModal();
     $(".button-collapse").sideNav();

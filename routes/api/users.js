@@ -16,7 +16,7 @@ router.get('/all', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-  var newUser = new User(req.body.data);
+  var newUser = new User(req.body);
   newUser.save(function (err, dbUser) {
       console.log("err:", err)
     console.log("dbUser:", dbUser);
@@ -98,8 +98,8 @@ router.post('/autocomplete', function(req, res){
     var url = "http://autocomplete.wunderground.com/aq?query=" + req.body.search;
     // console.log(req.body.search);
     request(url, function(err, response, body){
-        var body = JSON.parse(body);
-        results = body.RESULTS.slice(0,4)
+        body = JSON.parse(body);
+        results = body.RESULTS.slice(0,4);
         res.json(results);
     });
 });
