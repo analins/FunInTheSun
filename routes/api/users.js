@@ -98,7 +98,9 @@ router.post('/autocomplete', function(req, res){
     var url = "http://autocomplete.wunderground.com/aq?query=" + req.body.search;
     // console.log(req.body.search);
     request(url, function(err, response, body){
-        res.json(body);
+        var body = JSON.parse(body);
+        results = body.RESULTS.slice(0,4)
+        res.json(results);
     });
 });
 
