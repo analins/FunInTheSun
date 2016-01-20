@@ -63,10 +63,12 @@ router.post('/authenticate', function (req, res) {
 
 router.post('/cities', function (req, res) {
   if (req.user) {
-    req.user.cities.favorites.push(req.body.search);
-    req.user.save(function (err, dbUser) {
-      res.json(dbUser);
-    });
+    User.findById(req.user.id), function(err, dbUser) {
+      user.cities.favorites.push(req.body.cities.favorites);
+      user.save(function (err, dbUser) {
+        res.json(dbUser);
+      });
+    }
   }
 });
 

@@ -147,7 +147,7 @@ function getUser(callback) {
 function saveFavCity(cityData, callback) {
   $.ajax( {
     method: 'post',
-    url: '/api/users/cities/favorite',
+    url: '/api/users/cities',
     data: cityData,
     success: function(data) {
       callback(data);
