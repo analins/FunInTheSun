@@ -211,11 +211,12 @@ function getAndRenderFavCities(callback) {
 function getFavCities(callback) {
     callback = callback || function(){};
     $.ajax({
-        url: '/api/users/cities/favorite',
+        url: '/api/users/cities/best',
         error: function(error){
             console.log("Error: No favorite cities yet.");
         },
         success: function(data){
+            console.log(data);
             var source = $('#city-data').html();
             var template = Handlebars.compile(source);
             var compileHtml = template(data);
@@ -243,7 +244,7 @@ $(function () {
 
 
     getAndRenderFavCities();
-
+    // getFavCities();
 
 
 
@@ -253,5 +254,5 @@ $(function () {
     showHideElements();
     $('.modal-trigger').leanModal();
     $(".button-collapse").sideNav();
-    $('#getFavCities').on('click', getFavCities);
+    $('#getCities').on('click', getFavCities);
 });

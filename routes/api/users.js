@@ -77,14 +77,14 @@ router.post('/cities', function (req, res) {
 
 
 
-router.delete('/cities/:id', function (req, res) {
-  console.log('deleting');
-  User.cities.favorites.findByIdAndRemove(req.params.id, function (err) {
-    if (err) {res.status(500).end();}
-    res.status(204).end();
-  });
-
-});
+// router.delete('/cities/:id', function (req, res) {
+//   console.log('deleting');
+//   User.cities.favorites.findByIdAndRemove(req.params.id, function (err) {
+//     if (err) {res.status(500).end();}
+//     res.status(204).end();
+//   });
+//
+// });
 
 
 router.get('/cities/directions', function (req, res) {
