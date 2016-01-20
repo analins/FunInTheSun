@@ -208,12 +208,6 @@ $(function () {
     setEditUserFormHandler();
     setSaveFavCityFormHandler();
 
-    // getCurrentWeather();
-
-
-
-    //getCurrentWeather();
-
 
     logOut();
     $('.modal-trigger').leanModal();
