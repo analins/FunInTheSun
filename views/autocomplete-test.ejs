@@ -20,7 +20,7 @@
                 var search = searchbar.val();
 
                 $.ajax({
-                    method: 'get',
+                    method: 'post',
                     url: "/api/users/autocomplete",
                     data: {search: search},
                     success: function(data){console.log(data);}

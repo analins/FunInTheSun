@@ -63,7 +63,7 @@ router.post('/authenticate', function (req, res) {
 
 router.post('/cities', function (req, res) {
   if (req.user) {
-    req.user.cities.favorites.push(req.body.user);
+    req.user.cities.favorites.push(req.body.search);
     req.user.save(function (err, dbUser) {
       res.json(dbUser);
     });
@@ -98,12 +98,12 @@ router.get('/cities/directions', function (req, res) {
 var getCityData = require('../../lib/comparison.js');
 router.get('/cities/best', getCityData);
 
-router.get('/autocomplete', function(req, res){
-    // var url = "http://autocomplete.wunderground.com/aq?query=" + req;
-    console.log(JSON.stringify(req.data));
-    // request(url, function(err, response, body){
-    //     res.json(body);
-    // });
+router.post('/autocomplete', function(req, res){
+    var url = "http://autocomplete.wunderground.com/aq?query=" + req.body.search;
+    // console.log(req.body.search);
+    request(url, function(err, response, body){
+        res.json(body);
+    });
 });
 
 module.exports = router;
