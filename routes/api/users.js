@@ -57,10 +57,11 @@ router.post('/authenticate', function (req, res) {
 
 router.post('/cities', function (req, res) {
   if (req.user) {
-    User.findById(req.user.id), function(err, dbUser) {
-      user.cities.favorites.push(req.body.cities.favorites);
-      user.save(function (err, dbUser) {
-        res.json(dbUser);
+    User.findById(req.user._id), function(err, dbUser) {
+      dbUser.cities.favorites.push(req.body);
+      dbUser.save(function (err, user) {
+        res.json(user);
+        console.log('....fav_city_saved.....');
       });
     }
   }

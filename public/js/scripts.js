@@ -167,11 +167,14 @@ function setSaveFavCityFormHandler(callback) {
     var formObj = $(this).serializeObject();
     console.log(formObj);
 
+    $('#addcity-modal').closeModal();
     saveFavCity(formObj, function(city) {
-      console.log(city);
+      console.log(city, " is saved!!!");
     });
   });
 }
+
+
 
 
 function getFavCities(callback) {
