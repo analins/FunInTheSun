@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fun In The Sun</title>
+    <% include ./partials/head %>
+</head>
+<body>
+    <% include ./partials/navbar %>
+    <form autocomplete="off">
+        <input id="search" type="search"><button type="submit" class="btn">Search</button>
+    </form>
+
+    <script>
+        var searchbar = $("#search");
+        var timeout;
+        searchbar.on('keyup', function(){
+            clearTimeout(timeout);
+            timeout=setTimeout(function(){
+                var search = searchbar.val();
+
+                $.ajax({
+                    method: 'get',
+                    url: "/api/users/autocomplete",
+                    data: {search: search},
+                    success: function(data){console.log(data);}
+                });
+            }, 350)
+        });
+        $('form').on('submit', function(e){e.preventDefault();})
+    </script>
+</body>
+</html>

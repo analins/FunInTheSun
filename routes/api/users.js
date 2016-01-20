@@ -98,6 +98,12 @@ router.get('/cities/directions', function (req, res) {
 var getCityData = require('../../lib/comparison.js');
 router.get('/cities/best', getCityData);
 
-
+router.get('/autocomplete', function(req, res){
+    // var url = "http://autocomplete.wunderground.com/aq?query=" + req;
+    console.log(JSON.stringify(req.data));
+    // request(url, function(err, response, body){
+    //     res.json(body);
+    // });
+});
 
 module.exports = router;
