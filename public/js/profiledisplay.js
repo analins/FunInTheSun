@@ -1,8 +1,10 @@
+console.log('profile display loaded');
 
+//**********  DEFAULT WEATHER RENDERING  **********//
 
 function getCurrentWeather() {
   var zipcode = $('#zipcode').text();
-  $.getJSON("http://api.wunderground.com/api/85ff33caa7605eb7/conditions/q/" + zipcode + ".json", function (data) {
+  $.getJSON("http://api.wunderground.com/api/" + process.env.WUAPIKEY + "/conditions/q/" + zipcode + ".json", function (data) {
     renderWeatherResults(data);
     console.log(data);
   });
@@ -14,3 +16,5 @@ function renderWeatherResults(data) {
   var compiledHtml = template(data);
   $('#current-weather').html(compiledHtml);
 }
+
+//**********  RADIUS BASED WEATHER **********//
