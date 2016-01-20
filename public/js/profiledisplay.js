@@ -19,4 +19,28 @@ function renderWeatherResults(data) {
   $('#current-weather').html(compiledHtml);
 }
 
-//**********  RADIUS BASED WEATHER **********//
+//**********  BEST WEATHER **********//
+
+function getBestWeather() {
+  $.ajax({
+    method: 'get',
+    url: '/api/users/cities/best',
+    success: function (data) {
+      console.log(data);
+      renderBestResults(data)
+    }
+  });
+}
+
+function renderBestResults(data) {
+  var source = $('#best-weather').html();
+  var template = Handlebars.compile(source);
+  var compiledHtml = template(data);
+  $('#best-results').html(compiledHtml);
+}
+
+//**********|||**********|||**********//
+
+$(function () {
+  getCurrentWeather();
+})

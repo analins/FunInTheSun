@@ -213,9 +213,9 @@ function getFavCities(callback) {
 //SHOW ELEMENTS UPON LOGIN
 function showHideElements() {
     if ($.cookie('token')) {
-        $('.profile-content').show();
+        $('#nav ul').show();
     } else {
-        $('.profile-content').hide();
+        $('#nav ul').hide();
     }
 }
 
@@ -227,11 +227,16 @@ $(function () {
 
     getCurrentWeather();
 
+
     getAndRenderFavCities();
 
 
 
+
     logOut();
+
+    //STYLING STUFF//
+    showHideElements();
     $('.modal-trigger').leanModal();
     $(".button-collapse").sideNav();
     $('#getFavCities').on('click', getFavCities);
