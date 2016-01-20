@@ -61,7 +61,7 @@ router.post('/authenticate', function (req, res) {
 
 //Cities Routes -------------
 
-router.post('/cities', function (req, res) {
+router.post('/users', function (req, res) {
   if (req.user) {
     req.user.cities.favorites.push(req.body.user);
     req.user.save(function (err, dbUser) {
@@ -69,6 +69,8 @@ router.post('/cities', function (req, res) {
     });
   }
 });
+
+
 
 router.delete('/cities/:id', function (req, res) {
   console.log('deleting');

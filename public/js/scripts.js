@@ -99,7 +99,7 @@ function setEditUserFormHandler(){
     $('form#edit-user').on('submit', function(e) {
         e.preventDefault();
         var formObj = $(this);
-        
+
         formObj.children().each( function(){
             if (!$(this).val()) $(this).remove(); //remove empty fields
         });
@@ -147,7 +147,7 @@ function getUser(callback) {
 function saveNewCities(cityData, callback) {
   $.ajax( {
     method: 'post',
-    url: '/api/users',
+    url: '/api/users/cities/favorite',
     data: cityData,
     success: function(data) {
       callback(data);
@@ -164,7 +164,7 @@ function setSaveNewCitiesFormHandler(callback) {
     var formObj = $(this).serializeObject();
     console.log(formObj);
 
-    updateCity(formObj, function(city) {
+    saveNewCities(formObj, function(city) {
       console.log(city);
     });
   });
