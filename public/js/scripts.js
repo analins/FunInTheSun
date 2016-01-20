@@ -65,7 +65,7 @@ function setLogInFormHandler() {
             console.log('Token:', $.cookie('token') );
             window.location="/user";
         });
-        getCurrentWeather();
+      getCurrentWeather();
     });
 }
 
@@ -108,20 +108,6 @@ function setEditUserFormHandler(){
             console.log(user);
         });
     });
-
-    // var checkbox = $('#switch');
-    // var lever = $('.lever');
-    // lever.on('click', function(){
-    //     if(checkbox.attr('checked')) {
-    //         checkbox.removeAttr('checked');
-    //         console.log("Unchecked");
-    //     } else {
-    //         checkbox.attr('checked', 'checked');
-    //         console.log("Checked");
-    //     }
-    //
-    //
-    // });
 }
 
 
@@ -192,18 +178,18 @@ function setSaveFavCityFormHandler(callback) {
 }
 
 
-function getAndRenderFavCities(callback) {
-  $.ajax({
-    method: 'get',
-    url: '/api/users/cities',
-    success: function(data) {
-      for (var i = 0; i < data.length; i++) {
-        var $el = $('<p>').text(data[i]);
-        $('#render-fav-cities').append($el);
-      }
-    }
-  });
-}
+// function getAndRenderFavCities(callback) {
+//   $.ajax({
+//     method: 'get',
+//     url: '/api/users/cities',
+//     success: function(data) {
+//       for (var i = 0; i < data.length; i++) {
+//         var $el = $('<p>').text(data[i]);
+//         $('#render-fav-cities').append($el);
+//       }
+//     }
+//   });
+// }
 
 
 
@@ -211,12 +197,12 @@ function getAndRenderFavCities(callback) {
 function getFavCities(callback) {
     callback = callback || function(){};
     $.ajax({
+        method: 'get',
         url: '/api/users/cities/best',
         error: function(error){
             console.log("Error: No favorite cities yet.");
         },
         success: function(data){
-            console.log(data);
             var source = $('#city-data').html();
             var template = Handlebars.compile(source);
             var compileHtml = template(data);
@@ -239,12 +225,11 @@ $(function () {
     setLogInFormHandler();
     setEditUserFormHandler();
     setSaveFavCityFormHandler();
-
     getCurrentWeather();
 
 
-    getAndRenderFavCities();
-    // getFavCities();
+
+
 
 
 
