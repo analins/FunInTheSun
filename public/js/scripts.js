@@ -65,7 +65,7 @@ function setLogInFormHandler() {
             console.log('Token:', $.cookie('token') );
             window.location="/user";
         });
-
+      getCurrentWeather();
     });
 }
 
@@ -204,7 +204,14 @@ $(function () {
     setLogInFormHandler();
     setEditUserFormHandler();
     setSaveFavCityFormHandler();
+
     getCurrentWeather();
+
+
+
+    //getCurrentWeather();
+
+
     logOut();
     $('.modal-trigger').leanModal();
     $(".button-collapse").sideNav();
