@@ -18,25 +18,19 @@ router.get('/all', function (req, res) {
 router.post('/', function (req, res) {
   var newUser = new User(req.body.data);
   newUser.save(function (err, dbUser) {
-      console.log("err:", err);
+      console.log("err:", err)
     console.log("dbUser:", dbUser);
     res.json(dbUser);
   });
 });
 
-router.patch('/edit', function(req, res) {
-  User.findByIdAndUpdate(req.user.id, req.body, {new: true}, function(err, databaseUser) {
-    res.json(databaseUser);
+router.patch('/', function (req, res) {
+  if(req.user){
+    req.user.save(function (err, dbUser) {
+      res.json(dbUser);
     });
+  }
 });
-
-// router.patch('/', function (req, res) {
-//   if(req.user){
-//     req.user.save(function (err, dbUser) {
-//       res.json(dbUser);
-//     });
-//   }
-// });
 
 router.post('/authenticate', function (req, res) {
   console.log('checking...');

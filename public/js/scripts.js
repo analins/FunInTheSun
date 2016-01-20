@@ -1,11 +1,7 @@
 console.log('.....loaded.....');
 
 
-//**********  USER FUNCTIONS  **********//
-//**********  USER FUNCTIONS  **********//
-//**********  USER FUNCTIONS  **********//
-//**********  USER FUNCTIONS  **********//
-//**********  USER FUNCTIONS  **********//
+//**********  CREATE USER FUNCTIONS  **********//
 
 // Create a new user in db
 function createUser(userData, callback){
@@ -35,6 +31,7 @@ function setCreateUserFormHandler(){
     });
 }
 
+//**********  LOGIN/OUT USER FUNCTIONS  **********//
 
 // Log in an existing user
 function logInUser(usernameAttempt, passwordAttempt, callback){
@@ -61,8 +58,6 @@ function setLogInFormHandler() {
         var passwordText = passwordField.val();
         passwordField.val('');
 
-
-
         var userData = {username: usernameText, password: passwordText};
         logInUser(usernameText, passwordText, function(data) {
 
@@ -80,6 +75,8 @@ function logOut() {
         $.removeCookie('token');
     });
 }
+
+
 
 // Update a User
 function updateUser(userData, callback) {
@@ -114,15 +111,21 @@ function setEditUserFormHandler(){
 }
 
 
-function getUser(callback) {
-    $.ajax( {
-        url: '/api/users/id',
-        success: function(data) {
-            var user = data.user;
-            callback(user);
-        }
-    });
+function getCurrentWeather() {
+  var zipcode = $('#zipcode').text();
+  $.getJSON("http://api.wunderground.com/api/85ff33caa7605eb7/conditions/q/" + zipcode + ".json", function (data) {
+    renderWeatherResults(data);
+    console.log(data);
+  })
 }
+
+function renderWeatherResults(data) {
+  var source = $('#default-weather').html();
+  var template = Handlebars.compile(source);
+  var compiledHtml = template(data);
+  $('#current-weather').html(compiledHtml);
+}
+
 
 // // Update a User
 // function updateUser(userData, callback) {
@@ -200,7 +203,12 @@ $(function () {
     setCreateUserFormHandler();
     setLogInFormHandler();
     setEditUserFormHandler();
+
     setSaveFavCityFormHandler();
+
+    setSaveNewCitiesFormHandler();
+    getCurrentWeather();
+
     logOut();
     $('.modal-trigger').leanModal();
     $(".button-collapse").sideNav();
