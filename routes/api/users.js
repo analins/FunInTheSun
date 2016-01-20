@@ -55,6 +55,15 @@ router.post('/authenticate', function (req, res) {
 
 //Cities Routes -------------
 
+router.get('/cities', function (req, res) {
+  User.findById(req.user._id, function (err, dbUser) {
+    res.json(dbUser);
+
+  });
+});
+
+
+
 router.post('/cities', function (req, res) {
     User.findById(req.user._id, function(err, dbUser) {
         console.log(req.body);

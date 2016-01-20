@@ -178,6 +178,49 @@ function setSaveFavCityFormHandler(callback) {
 }
 
 
+function getAndRenderFavCities(callback) {
+  $.ajax({
+    method: 'get',
+    url: '/api/users/cities',
+    success: function(data) {
+      for (var i = 0; i < data.length; i++) {
+        var $el = $('<p>').text(data[i]);
+        $('#render-fav-cities').append($el);
+      }
+    }
+  });
+}
+
+
+// function getAllDonuts(callback) {
+//   $.ajax({
+//     url: 'https://api.doughnuts.ga/doughnuts',
+//       success: function(data){
+//         for (var i = 0; i < data.length; i++) {
+//           var $el = $('<li>').text(data[i].style + " " + data[i].flavor);
+//           $('#doughnuts').append($el);
+//         }
+//
+//       }
+//     });
+//   }
+// }
+
+// function getFavCities(cityData, callback) {
+//   $.ajax( {
+//     method: 'get',
+//     url: '/api/users/cities',
+//     data: cityData,
+//     success: function(data) {
+//       var city = data.city || [];
+//       callback(data);
+//     }
+//   });
+// }
+//
+// function renderFavCities(citiesArray) {
+//   var source =
+// }
 
 
 function getFavCities(callback) {
@@ -210,10 +253,15 @@ $(function () {
     setLogInFormHandler();
     setEditUserFormHandler();
     setSaveFavCityFormHandler();
+
     getCurrentWeather();
+
+    getAndRenderFavCities();
+
+
 
     logOut();
     $('.modal-trigger').leanModal();
     $(".button-collapse").sideNav();
-    $('#getCities').on('click', getFavCities);
+    $('#getFavCities').on('click', getFavCities);
 });
