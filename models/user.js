@@ -7,6 +7,7 @@ var UserSchema = mongoose.Schema({
   username: {type: String, required: true, index: { unique: true } },
   password: {type: String, required: true},
   token: {type: String},
+  radius: {type: Boolean, default: true},
   name: {
     first: {type: String},
     last: {type: String}
@@ -15,7 +16,7 @@ var UserSchema = mongoose.Schema({
     main: { //citySchema
       name: {type: String},
       nickname: {type: String},
-      zipcode: {type: String}
+      zipcode: {type: String, required: true}
     },
     favorites: [citySchema]
   }

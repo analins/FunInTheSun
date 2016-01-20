@@ -24,12 +24,11 @@ router.post('/', function (req, res) {
   });
 });
 
-router.patch('/', function (req, res) {
-  if(req.user){
-    req.user.save(function (err, dbUser) {
-      res.json(dbUser);
+router.patch('/edit', function (req, res) {
+    User.findByIdAndUpdate(req.user._id, req.body, {new: true}, function(err, dbUser){
+        res.json(dbUser);
     });
-  }
+
 });
 
 router.post('/authenticate', function (req, res) {

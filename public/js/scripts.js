@@ -65,7 +65,7 @@ function setLogInFormHandler() {
             console.log('Token:', $.cookie('token') );
             window.location="/user";
         });
-      getCurrentWeather();
+        getCurrentWeather();
     });
 }
 
@@ -108,6 +108,20 @@ function setEditUserFormHandler(){
             console.log(user);
         });
     });
+
+    // var checkbox = $('#switch');
+    // var lever = $('.lever');
+    // lever.on('click', function(){
+    //     if(checkbox.attr('checked')) {
+    //         checkbox.removeAttr('checked');
+    //         console.log("Unchecked");
+    //     } else {
+    //         checkbox.attr('checked', 'checked');
+    //         console.log("Checked");
+    //     }
+    //
+    //
+    // });
 }
 
 
