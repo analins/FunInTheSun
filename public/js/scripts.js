@@ -85,7 +85,7 @@ function logOut() {
 function updateUser(userData, callback) {
     $.ajax( {
         method: 'patch',
-        url: '/user/edit',
+        url: '/api/users/edit',
         data: userData,
         success: function(data) {
             callback(data);
@@ -98,8 +98,13 @@ function updateUser(userData, callback) {
 function setEditUserFormHandler(){
     $('form#edit-user').on('submit', function(e) {
         e.preventDefault();
+        var formObj = $(this);
+        
+        formObj.children().each( function(){
+            if (!$(this).val()) $(this).remove(); //remove empty fields
+        });
 
-        var formObj = $(this).serializeObject();
+        formObj = formObj.serializeObject();
         console.log(formObj);
 
         updateUser(formObj, function(user){
