@@ -3,10 +3,12 @@ console.log('profile display loaded');
 //**********  DEFAULT WEATHER RENDERING  **********//
 
 function getCurrentWeather() {
-  var zipcode = $('#zipcode').text();
-  $.getJSON("http://api.wunderground.com/api/" + process.env.WUAPIKEY + "/conditions/q/" + zipcode + ".json", function (data) {
-    renderWeatherResults(data);
-    console.log(data);
+  $.ajax({
+    method: 'get',
+    url: '/api/users/defaultweather',
+    success: function (data) {
+      renderWeatherResults(data);
+    }
   });
 }
 

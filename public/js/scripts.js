@@ -112,11 +112,14 @@ function setEditUserFormHandler(){
 
 
 function getCurrentWeather() {
-  var zipcode = $('#zipcode').text();
-  $.getJSON("http://api.wunderground.com/api/" + process.env.WUAPIKEY + "/conditions/q/" + zipcode + ".json", function (data) {
-    renderWeatherResults(data);
-    console.log(data);
-  })
+
+  $.ajax({
+    method: 'get',
+    url: '/api/users/defaultweather',
+    success: function (data) {
+      renderWeatherResults(data);
+    }
+  });
 }
 
 function renderWeatherResults(data) {
@@ -207,7 +210,7 @@ $(function () {
     setLogInFormHandler();
     setEditUserFormHandler();
     setSaveFavCityFormHandler();
-
+    getCurrentWeather();
 
     logOut();
     $('.modal-trigger').leanModal();
