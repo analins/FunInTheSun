@@ -208,7 +208,7 @@ $(function () {
     setEditUserFormHandler();
     setSaveFavCityFormHandler();
 
-    getCurrentWeather();
+    // getCurrentWeather();
 
 
 

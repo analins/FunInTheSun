@@ -56,15 +56,15 @@ router.post('/authenticate', function (req, res) {
 //Cities Routes -------------
 
 router.post('/cities', function (req, res) {
-  if (req.user) {
-    User.findById(req.user._id), function(err, dbUser) {
+    User.findById(req.user._id, function(err, dbUser) {
+        console.log(req.body);
       dbUser.cities.favorites.push(req.body);
       dbUser.save(function (err, user) {
         res.json(user);
         console.log('....fav_city_saved.....');
       });
-    }
-  }
+});
+
 });
 
 
