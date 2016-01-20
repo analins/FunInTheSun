@@ -61,7 +61,7 @@ router.post('/authenticate', function (req, res) {
 
 //Cities Routes -------------
 
-router.post('/users', function (req, res) {
+router.post('/cities', function (req, res) {
   if (req.user) {
     req.user.cities.favorites.push(req.body.user);
     req.user.save(function (err, dbUser) {

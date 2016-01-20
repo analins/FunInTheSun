@@ -144,7 +144,7 @@ function getUser(callback) {
 //**********  CITY FUNCTIONS  **********//
 //**********  CITY FUNCTIONS  **********//
 
-function saveNewCities(cityData, callback) {
+function saveFavCity(cityData, callback) {
   $.ajax( {
     method: 'post',
     url: '/api/users/cities/favorite',
@@ -157,14 +157,14 @@ function saveNewCities(cityData, callback) {
 
 
 
-function setSaveNewCitiesFormHandler(callback) {
+function setSaveFavCityFormHandler(callback) {
   $('form#addcity-form').on('submit', function(e) {
     e.preventDefault();
 
     var formObj = $(this).serializeObject();
     console.log(formObj);
 
-    saveNewCities(formObj, function(city) {
+    saveFavCity(formObj, function(city) {
       console.log(city);
     });
   });
@@ -200,7 +200,7 @@ $(function () {
     setCreateUserFormHandler();
     setLogInFormHandler();
     setEditUserFormHandler();
-    setSaveNewCitiesFormHandler();
+    setSaveFavCityFormHandler();
     logOut();
     $('.modal-trigger').leanModal();
     $(".button-collapse").sideNav();
