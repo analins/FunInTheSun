@@ -207,7 +207,7 @@ function getFavCities(callback) {
             var source = $('#city-data').html();
             var template = Handlebars.compile(source);
             var compileHtml = template(data);
-            $('#render-cities').html(compileHtml);
+            $('#results-list').html(compileHtml);
         }
     });
 }
