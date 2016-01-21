@@ -15,7 +15,21 @@ nav {
 
 .logo {
   font-size: 1.5em;
-  margin-left: .5em;
+  margin-left: 3em;
+  position:relative;
+}
+.logo::before{
+    height:2.5em;
+    width:2.5em;
+    margin-left: -2.5em;
+    margin-top: .2em;
+    background-repeat: none;
+    -webkit-background-size: contain;
+    background-size: contain;
+    display: inline-block;
+    position: absolute;
+    content:"";
+    background-image: url(/images/getsun_small.png);
 }
 
 
