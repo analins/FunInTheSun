@@ -47,7 +47,7 @@ function logInUser(usernameAttempt, passwordAttempt, callback){
 
 // Log in user form
 function setLogInFormHandler() {
-    $('form#log-in').on('submit', function(e) {
+    $('.login-form').on('submit', function(e) {
         e.preventDefault();
 
         var usernameField = $(this).find('input[name="username"]');
