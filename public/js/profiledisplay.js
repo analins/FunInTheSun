@@ -22,7 +22,6 @@ function renderWeatherResults(data) {
 }
 
 
-
 function weatherBackground(data) {
   var data = data.current_observation.weather;
 
@@ -38,6 +37,25 @@ function weatherBackground(data) {
   if (/rain$|^thunder/.test(data) ) {
       $('html').css({'background-image': 'url("/images/profileview/city-weather-glass-skyscrapers.jpg")'});
   }
+}
+
+function getComparedCities(callback) {
+    callback = callback || function(){};
+    $.ajax({
+        method: 'get',
+        url: '/api/users/cities/best',
+        error: function(error){
+            console.log("Error: No favorite cities yet.");
+        },
+        success: function(data){
+          console.log(data);
+            var source = $('#city-data').html();
+            var template = Handlebars.compile(source);
+            var compileHtml = template(data);
+            $('#results-list').html(compileHtml);
+        }
+    });
+    $('#best-results').html($('#loader').html());
 }
 
 //**********  BEST WEATHER **********//
@@ -67,5 +85,5 @@ function weatherBackground(data) {
 
 $(function () {
   getCurrentWeather();
-
-})
+  $('#getCities').on('click', getComparedCities);
+});

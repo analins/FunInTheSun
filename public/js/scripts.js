@@ -194,23 +194,7 @@ function setSaveFavCityFormHandler(callback) {
 
 
 
-function getFavCities(callback) {
-    callback = callback || function(){};
-    $.ajax({
-        method: 'get',
-        url: '/api/users/cities/best',
-        error: function(error){
-            console.log("Error: No favorite cities yet.");
-        },
-        success: function(data){
-          console.log(data);
-            var source = $('#city-data').html();
-            var template = Handlebars.compile(source);
-            var compileHtml = template(data);
-            $('#results-list').html(compileHtml);
-        }
-    });
-}
+
 
 
 function deleteCity(cityData, callback) {
@@ -251,16 +235,6 @@ $(function () {
     setSaveFavCityFormHandler();
     //getCurrentWeather();
     deleteCityButton();
-
-
-
-
-
-
-
     logOut();
-
-
     showHideElements();
-    $('#getCities').on('click', getFavCities);
 });

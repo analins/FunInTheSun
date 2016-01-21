@@ -6,6 +6,7 @@ function renderDirections(data) {
   var compiledHtml = template(data);
   $('#directions-body').html(compiledHtml);
   $('#directions-modal').openModal();
+  directionsFormListener();
 }
 
 function printDirections() {
@@ -17,13 +18,12 @@ function printDirections() {
   });
 }
 function directionsFormListener () {
-    form = $('#directions-form');
-    form.on('submit', function(e){
+    $(".directions-form").on('submit' , function(e){
         e.preventDefault();
 
         $.ajax({
             method: 'get',
-            data: {zip: form.find('#form-zip').val()},
+            data: {zip: $(this).find('.form-zip').val()},
             url: '/api/directions',
             success: function (data) {
                 console.log(data);
@@ -36,7 +36,5 @@ function directionsFormListener () {
 
 
 $(function () {
-  // directionsResults();
   printDirections();
-  directionsFormListener();
 });

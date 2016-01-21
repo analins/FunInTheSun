@@ -17,12 +17,16 @@
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">{{ location.city }} – {{ forecast.simpleforecast.forecastday.[0].high.fahrenheit }}&deg;<i class="material-icons right">more_vert</i></span>
+          <p class="delete" id="{{ location.zip }}"></p>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{ location.city }}<i class="material-icons right">close</i></span>
-          <p>Temperature.</p>
-          <p>conditions.</p>
-          <p>icon.</p>
+          <span class="card-title grey-text text-darken-4">{{ location.city }} – {{ forecast.simpleforecast.forecastday.[0].high.fahrenheit }}&deg;<i class="material-icons right">close</i></span>
+          <img src="{{forecast.simpleforecast.forecastday.[0].icon_url}}" alt="">
+          <p>{{forecast.txt_forecast.forecastday.[0].fcttext}}</p>
+          <form class="directions-form">
+              <input type="hidden" class="form-zip" placeholder="Zipcode" value="">
+              <input type="submit" value="Get Directions">
+          </form>
         </div>
       </div>
     </li>
@@ -70,3 +74,19 @@
     {{/each}}
   </ol>
 </script>
+
+
+<!-- Material -->
+
+<script id="loader" type="text/html">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </script>
