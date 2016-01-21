@@ -66,13 +66,12 @@ router.get('/cities', function (req, res) {
 router.post('/cities', function (req, res) {
     User.findById(req.user._id, function(err, dbUser) {
         console.log(req.body);
-      dbUser.cities.favorites.push(req.body);
-      dbUser.save(function (err, user) {
-        res.json(user);
-        console.log('....fav_city_saved.....');
-      });
-});
-
+        dbUser.cities.favorites.push(req.body);
+        dbUser.save(function (err, user) {
+            res.json(user);
+            console.log('....fav_city_saved.....');
+        });
+    });
 });
 
 
@@ -94,17 +93,14 @@ router.get('/cities/directions', function (req, res) {
     request(url, function(err, response, body){
       res.json(JSON.parse(body));
     });
-
-
 });
 
 //Rank the cities by conditions and return an array of cities
 var getCityData = require('../../lib/comparison.js');
 router.get('/cities/best', getCityData);
 
-router.post('/autocomplete', function(req, res){
-    var url = "http://autocomplete.wunderground.com/aq?query=" + req.body.search;
-    // console.log(req.body.search);
+router.get('/autocomplete', function(req, res){
+    var url = "http://autocomplete.wunderground.com/aq?query=" + req.query.search;
     request(url, function(err, response, body){
         body = JSON.parse(body);
         results = body.RESULTS.slice(0,6);
@@ -114,7 +110,7 @@ router.post('/autocomplete', function(req, res){
 
 //default city weather
 router.get('/defaultweather', function (req, res) {
-  console.log("Default Weather")
+  console.log("Default Weather");
   var url = "http://api.wunderground.com/api/" + process.env.WUAPIKEY + "/conditions/q/" + req.user.cities.main.zipcode + ".json";
 
   request(url, function (err, response, body) {
