@@ -78,7 +78,7 @@ router.post('/cities', function (req, res) {
 
 router.patch('/cities/', function (req, res) {
   console.log('deleting');
-  User.cities.favorites.findByIdAndRemove(req.body.favorite, function (deleteCity) {
+  User.findById(req.user._id, function (err, dbUser) {
     // if (err) {res.status(500).end();}
     // res.status(204).end();
 
@@ -87,8 +87,10 @@ router.patch('/cities/', function (req, res) {
       return value.zipcode !== param;
     }
 
-    var filtered = user.cities.favorites.filter (function(value) {
-      return deleteCity(value, "Garnet Valley")})
+    var filtered = dbUser.cities.favorites.filter (function(value) {
+      var zipcode = req.body.zip;
+      return deleteCity(value, zipcode)});
+      dbUser.save();
   });
 
 });
