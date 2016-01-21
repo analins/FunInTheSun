@@ -52,9 +52,7 @@ app.use('/api/weather', weather);
 var directions = require('./routes/api/directions');
 app.use('/api/directions', directions);
 
-// Zipcode
-var zipcodes = require('./routes/api/zipcodes');
-app.use('/api/zipcodes', zipcodes);
+
 
 
 
