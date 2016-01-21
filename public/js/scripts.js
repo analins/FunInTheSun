@@ -112,18 +112,6 @@ function setEditUserFormHandler(){
 
 
 
-// // Update a User
-// function updateUser(userData, callback) {
-//   $.ajax( {
-//     method: 'patch',
-//     url: '/api/users',
-//     data: {user: userData},
-//     success: function(data) {
-//       callback(data);
-//     }
-//   });
-// }
-
 
 
 //**********  CITY FUNCTIONS  **********//
@@ -158,21 +146,6 @@ function setSaveFavCityFormHandler(callback) {
     });
   });
 }
-
-
-// function getAndRenderFavCities(callback) {
-//   $.ajax({
-//     method: 'get',
-//     url: '/api/users/cities',
-//     success: function(data) {
-//       for (var i = 0; i < data.length; i++) {
-//         var $el = $('<p>').text(data[i]);
-//         $('#render-fav-cities').append($el);
-//       }
-//     }
-//   });
-// }
-
 
 
 
