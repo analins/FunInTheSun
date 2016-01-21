@@ -8,20 +8,24 @@
 
 <!--  Templates -->
 <script id="city-data" type="text/x-handlebars-template">
-  {{#each cities.favorites}}
-    <!-- <div id="city-img">
-      {{ cityimg }}
-    </div> -->
-    <div id="city-name">
-      <h3> {{ name }} </h3>
-    </div>
-    <!-- <div id="city-temp">
-      <h4>Temperature: {{ temperature }} </h4>
-    </div> -->
-    <div >
-      <h5> {{ zipcode }} </h5>
-    </div>
-  {{/each}}
+    {{#each cities}}
+    <li>
+      <div class="card hoverable small" style="max-width: 350px">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="/images/city-weather-glass-skyscrapers.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{ location.city }} – {{ location.forecast.simpleforecast.forecastday.[0].high.fahrenheit }}<i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{ location.city }}<i class="material-icons right">close</i></span>
+          <p>Temperature.</p>
+          <p>conditions.</p>
+          <p>icon.</p>
+        </div>
+      </div>
+    </li>
+    {{/each}}
 </script>
 
 <script id="user-profile" type="text/x-handlebars-template">
