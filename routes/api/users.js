@@ -25,8 +25,12 @@ router.post('/', function (req, res) {
 });
 
 router.patch('/edit', function (req, res) {
-    User.findByIdAndUpdate(req.user._id, req.body, {new: true}, function(err, dbUser){
-        res.json(dbUser);
+    User.findById(req.user._id, function(err, dbUser){
+        dbUser.name = req.body.name;
+        dbUser.cities.main = req.body.cities.main;
+        dbUser.radius = req.body.radius;
+        dbUser.save();
+        // res.json(dbUser);
     });
 
 });
