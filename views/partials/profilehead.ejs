@@ -33,33 +33,18 @@
     {{/each}}
 </script>
 
-<script id="user-profile" type="text/x-handlebars-template">
-  {{#each users}}
-    <div id="first-name">
-      {{ name: first }}
-    </div>
-    <div id="last-name">
-      {{ name: last }}
-    </div>
-    <div id="username">
-      {{ name: username }}
-    </div>
-    <div id="password">
-      {{ password }}
-    </div>
-  {{/each}}
-</script>
 
 <script id="default-weather" type="text/x-handlebars-template">
   <h5>{{current_observation.display_location.full}}</h5>
-  <h4>{{current_observation.temp_f}} °F </h4>
+  <h4>{{current_observation.temp_f}}°F </h4>
   <h5 id="weather-description">{{current_observation.weather}}</h5>
   <img src={{current_observation.icon_url}} class="weather-icon" alt="weather-icon">
 </script>
 
+
 <script id="best-weather" type="text/x-handlebars-template">
   <h5>{{city}}</h5>
-  <h4>{{currenttemp_f}} °F </h4>
+  <h4>{{currenttemp_f}}°F </h4>
   <h5>{{description}}</h5>
   <img src={{icon}} class="weather-icon" alt="weather-icon">
   <h5>{{get directions}}</h5>

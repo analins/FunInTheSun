@@ -12,6 +12,7 @@ function getCurrentWeather() {
       weatherBackground();
     }
   });
+  $('#current-weather').html($('#loader').html());
 }
 
 function renderWeatherResults(data) {
