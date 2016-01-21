@@ -95,18 +95,18 @@ function updateUser(userData, callback) {
 function setEditUserFormHandler(){
     $('form#edit-user').on('submit', function(e) {
         e.preventDefault();
-        var formObj = $(this);
-
-        formObj.children().each( function(){
-            if (!$(this).val()) $(this).remove(); //remove empty fields
-        });
-
-        formObj = formObj.serializeObject();
+        var formObj = $(this).serializeObject();
         console.log(formObj);
 
         updateUser(formObj, function(user){
             console.log(user);
         });
+    });
+
+    var lever = $('form#edit-user .lever');
+    var radius = $('form#edit-user [type="hidden"]');
+    lever.on('click', function(){
+        (radius.val() == "true") ? radius.val("false") : radius.val("true");
     });
 }
 

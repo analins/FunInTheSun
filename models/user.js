@@ -7,7 +7,7 @@ var UserSchema = mongoose.Schema({
   username: {type: String, required: true, index: { unique: true } },
   password: {type: String, required: true},
   token: {type: String},
-  radius: {type: Boolean, default: true},
+  radius: {type: String, default: "true"},
   name: {
     first: {type: String},
     last: {type: String}

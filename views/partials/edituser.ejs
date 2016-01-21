@@ -13,13 +13,14 @@
             <label for="zipcode">zipcode: </label>
             <input type="text" name="cities[main][zipcode]" placeholder="zipcode" value="<%= user.cities.main.zipcode %>">
             <div class="switch">
-              <label id>
-                Favorite's List Search
-                <input id="switch" type="checkbox" name="radius">
-                <span class="lever"></span>
-                Radius-based Search
-              </label>
+                <label id>
+                    Favorite's List Search
+                    <input id="switch" type="checkbox" <% if(user.radius == "true"){%>checked<%}%> >
+                    <span class="lever"></span>
+                    Radius-based Search
+                </label>
             </div>
+            <input type="hidden" name="radius" value="<%= user.radius %>">
             <div class="modal-footer">
                 <input type="submit" placeholder="Submit Changes" class="modal-action modal-close waves-effect waves-green btn-flat">
             </div>
