@@ -53,6 +53,7 @@ function getComparedCities(callback) {
             var template = Handlebars.compile(source);
             var compileHtml = template(data);
             $('#results-list').html(compileHtml);
+            directionsFormListener(); // Set handler for each of the get directions buttons
         }
     });
     $('#results-list').html($('#loader').html());
