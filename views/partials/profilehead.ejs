@@ -53,7 +53,7 @@
 <script id="default-weather" type="text/x-handlebars-template">
   <h5>{{current_observation.display_location.full}}</h5>
   <h4>{{current_observation.temp_f}} °F </h4>
-  <h5>{{current_observation.weather}}</h5>
+  <h5 id="weather-description">{{current_observation.weather}}</h5>
   <img src={{current_observation.icon_url}} class="weather-icon" alt="weather-icon">
 </script>
 

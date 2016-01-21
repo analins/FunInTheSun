@@ -9,7 +9,7 @@ function getCurrentWeather() {
     url: '/api/weather',
     success: function (data) {
       renderWeatherResults(data);
-      weatherBackground(data);
+      weatherBackground();
     }
   });
 }
@@ -22,21 +22,22 @@ function renderWeatherResults(data) {
 }
 
 
-function weatherBackground(data) {
-  var data = data.current_observation.weather;
-
-  if ( /sunny$|clear$|^partly/.test(data) ) {
+function weatherBackground() {
+  var conditions = $('#weather-description').text();
+  console.log(conditions)
+  if ( /sunny$|clear$|^partly/i.test(conditions) ) {
     $('body').css({'background-image': 'url("/images/profileview/sea-sky-beach-holiday.jpeg")'});
   }
-  if (/cloudy$|fog$|haze$|overcast$/.test(data) ) {
-    $('html').css({'background-image': 'url("/images/profileview/nature-sky-clouds-cloudy.jpg")'});
+  if (/cloudy$|fog$|haze$|overcast$/i.test(conditions) ) {
+    $('body').css({'background-image': 'url("/images/profileview/nature-sky-clouds-cloudy.jpg")'});
   }
-  if (/flurries$|snow$|sleet$/.test(data) ) {
-      $('html').css({'background-image': 'url("/images/profileview/snow-forest-trees-winter.jpeg")'});
+  if (/flurries$|snow$|sleet$/i.test(conditions) ) {
+      $('body').css({'background-image': 'url("/images/profileview/snow-forest-trees-winter.jpeg")'});
   }
-  if (/rain$|^thunder/.test(data) ) {
-      $('html').css({'background-image': 'url("/images/profileview/city-weather-glass-skyscrapers.jpg")'});
+  if (/rain$|^thunder/i.test(conditions) ) {
+      $('body').css({'background-image': 'url("/images/profileview/city-weather-glass-skyscrapers.jpg")'});
   }
+
 }
 
 function getComparedCities(callback) {
@@ -86,5 +87,6 @@ function getComparedCities(callback) {
 
 $(function () {
   getCurrentWeather();
+
   $('#getCities').on('click', getComparedCities);
 });
