@@ -6,16 +6,18 @@ function renderDirections(data) {
   var compiledHtml = template(data);
   $('#directions-body').html(compiledHtml);
   $('#directions-modal').openModal();
-  directionsFormListener();
+  // directionsFormListener();
 }
 
 function printDirections() {
   $('#print').on('click', function () {
     var printBody = $('#directions-body').html();
-    $('.container').hide();
+    $('#profile-container').hide();
     $('.printable-area').html(printBody);
     window.print();
   });
+  $('.printable-area').empty('');
+  $('#profile-container').show();
 }
 function directionsFormListener () {
     $(".directions-form").on('submit' , function(e){
