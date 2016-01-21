@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Fun In The Sun</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
     <% include ./partials/head %>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" charset="utf-8"></script>
+    <style>
+    /*jQuery UI autocomplete styles*/
+        .ui-autocomplete {
+            background-color: #fff;
+            border-bottom: 4px solid orange;
+            padding: 5px;
+            
+        }
+        .ui-helper-hidden-accessible {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <% include ./partials/navbar %>
@@ -17,34 +29,40 @@
     <script>
         var searchbar = $("#search");
         var timeout;
-        var availableTags=['a','aa','aad', 'ava'];
+        var availableTags=[];
+        var nameArr=["Type a city name, airport code, zip code..."];
         searchbar.on('keyup', function(){
             clearTimeout(timeout);
+
             timeout=setTimeout(function(){
                 var search = searchbar.val();
+                availableTags = nameArr;
+                searchbar.autocomplete({
+                  source: function(req, res){
+                      $.ajax({
+                          method: 'post',
+                          url: "/api/users/autocomplete",
+                          data: {search: search},
+                          success: function(data){
+                              nameArr=[];
+                              for (var i = 0; i < data.length; i++) {
 
-                $.ajax({
-                    method: 'post',
-                    url: "/api/users/autocomplete",
-                    data: {search: search},
-                    success: function(data){
-                        var nameArr=[];
-                        for (var i = 0; i < data.length; i++) {
-
-                            nameArr.push(data[i].name)
-                        }
-                        // availableTags = nameArr;
-                        searchbar.autocomplete({
-                          source: nameArr
-                        });
-                    }
+                                  nameArr.push(data[i].name)
+                              }
+                              return res(nameArr);
+                          }
+                      });
+                  }
                 });
-            }, 350)
+
+            }, 10)
         });
         $('form').on('submit', function(e){e.preventDefault();})
 
 
-
+        searchbar.autocomplete({
+          source: nameArr
+        });
 
     </script>
 </body>

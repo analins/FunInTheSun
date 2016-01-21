@@ -107,7 +107,7 @@ router.post('/autocomplete', function(req, res){
     // console.log(req.body.search);
     request(url, function(err, response, body){
         body = JSON.parse(body);
-        results = body.RESULTS.slice(0,4);
+        results = body.RESULTS.slice(0,6);
         res.json(results);
     });
 });
