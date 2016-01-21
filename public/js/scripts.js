@@ -203,6 +203,7 @@ function getFavCities(callback) {
             console.log("Error: No favorite cities yet.");
         },
         success: function(data){
+          console.log(data);
             var source = $('#city-data').html();
             var template = Handlebars.compile(source);
             var compileHtml = template(data);

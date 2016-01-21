@@ -7,48 +7,97 @@
 
   </head>
   <body>
-
     <% include ../partials/navbar %>
+    <div class="row" style="margin-left: 3em">
+      <div class="col s8">
+        <h1>Hello <%= user.name.first %> .</h1>
+        <div id="current-weather"></div>
+        <% include ../partials/directions %>
+        <% include ../partials/addcity %>
+        <% include ../partials/edituser %>
 
+        <div id="best-results"></div>
 
+        <button id="getCities" class="waves-effect waves-teal btn-flat">Get Cities' Weather</button>
 
-    </div>
-    <div class="container">
-      <h1><%= user.username %></h1>
-      <% include ../partials/directions %>
-      <% include ../partials/addcity %>
-      <% include ../partials/edituser %>
+        <section id="directions-view"></section>
 
+        <section id="user-cities">
+          <div id="render-cities"></div>
+        </section>
 
-      <div id="current-weather">
-
+        <section id="render-user"></secton>
       </div>
 
-      <div id="best-results">
-
+      <div class="col s4">
+        <ul class="cards-template" style="margin-left: 1em">
+          <li>
+            <div class="card hoverable small" style="width: 350px">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/images/city-weather-glass-skyscrapers.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">New York<i class="material-icons right">more_vert</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">New York<i class="material-icons right">close</i></span>
+                <p>Temperature.</p>
+                <p>conditions.</p>
+                <p>icon.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card hoverable small" style="width: 350px">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/images/city-weather-glass-skyscrapers.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">New York<i class="material-icons right">more_vert</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">New York<i class="material-icons right">close</i></span>
+                <p>Temperature.</p>
+                <p>conditions.</p>
+                <p>icon.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card hoverable small" style="width: 350px">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/images/city-weather-glass-skyscrapers.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">New York<i class="material-icons right">more_vert</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">New York<i class="material-icons right">close</i></span>
+                <p>Temperature.</p>
+                <p>conditions.</p>
+                <p>icon.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card hoverable small" style="width: 350px">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="/images/city-weather-glass-skyscrapers.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">New York<i class="material-icons right">more_vert</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">New York<i class="material-icons right">close</i></span>
+                <p>Temperature.</p>
+                <p>conditions.</p>
+                <p>icon.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
 
-      <button id="getCities" class="waves-effect waves-teal btn-flat">Get Cities' Weather</button>
-
-      <section id="directions-view"></section>
-
-      <section id="user-cities">
-        <div id="render-fav-cities">
-        </div>
-      </section>
-
-
-      <section id="render-user">
-
-
-
-
-
-
-
-      <section id="render-user">
-
-      </secton>
     </div>
   </body>
 </html>
