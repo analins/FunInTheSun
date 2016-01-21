@@ -39,8 +39,10 @@ function renderBestResults(data) {
   $('#best-results').html(compiledHtml);
 }
 
+
 //**********|||**********|||**********//
 
 $(function () {
   getCurrentWeather();
+
 })

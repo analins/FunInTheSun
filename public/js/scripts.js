@@ -260,9 +260,7 @@ $(function () {
 
     logOut();
 
-    //STYLING STUFF//
+
     showHideElements();
-    $('.modal-trigger').leanModal();
-    $(".button-collapse").sideNav();
     $('#getCities').on('click', getFavCities);
 });

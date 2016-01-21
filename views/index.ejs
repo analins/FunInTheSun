@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Fun In The Sun</title>
-    <% include ./partials/head %>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>Fun In The Sun</title>
+  <% include ./partials/head %>
+</head>
 
-  <body>
-    <% include ./partials/navbar %>
-    <div class="container">
+<body>
+  <!-- Nav Bar -->
+  <% include ./partials/navbar %>
 
-      <section id="user-manager">
-        <% include ./partials/user-manager %>
-      </section>
+  <!-- Transitioning Backgrounds -->
+  <% include ./partials/indexbackgrounds %>
 
-      
+  <div class="container" id="index-container">
+    <!-- Login Form  -->
+    <% include ./partials/login %>
+  </div>
 
+  <!-- Signup Modal -->
+  <% include ./partials/signup %>
 
-    </div>
-    <div class="printable-area"></div>
-  </body>
+</body>
 </html>
