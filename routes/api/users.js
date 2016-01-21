@@ -86,36 +86,12 @@ router.post('/cities', function (req, res) {
 // });
 
 
-router.get('/cities/directions', function (req, res) {
-  console.log('Getting Directions...');
-    url= "https://maps.googleapis.com/maps/api/directions/json?origin=" + req.user.cities.main.zipcode + "&destination=" + req.query.zip;
-    console.log(url);
-    request(url, function(err, response, body){
-      res.json(JSON.parse(body));
-    });
-});
-
 //Rank the cities by conditions and return an array of cities
 var getCityData = require('../../lib/comparison.js');
 router.get('/cities/best', getCityData);
 
-router.get('/autocomplete', function(req, res){
-    var url = "http://autocomplete.wunderground.com/aq?query=" + req.query.search;
-    request(url, function(err, response, body){
-        body = JSON.parse(body);
-        results = body.RESULTS.slice(0,6);
-        res.json(results);
-    });
-});
 
-//default city weather
-router.get('/defaultweather', function (req, res) {
-  console.log("Default Weather");
-  var url = "http://api.wunderground.com/api/" + process.env.WUAPIKEY + "/conditions/q/" + req.user.cities.main.zipcode + ".json";
 
-  request(url, function (err, response, body) {
-    res.json(JSON.parse(body));
-  });
-});
+
 
 module.exports = router;

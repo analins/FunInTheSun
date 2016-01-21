@@ -31,14 +31,32 @@ mongoose.connect(mongoPath);
 // ****** ROUTING ******
 // -----------------------
 
+// View routes -------------
 var index = require('./routes/index');
 app.use('/', index);
 
+var profile = require('./routes/user/profile');
+app.use('/user', profile);
+
+// API routes ---------------
+
+// Our API
 var users = require('./routes/api/users');
 app.use('/api/users', users);
 
-var profile = require('./routes/user/profile');
-app.use('/user', profile);
+// Weather Underground
+var weather = require('./routes/api/weather');
+app.use('/api/weather', weather);
+
+// Google Directions
+var directions = require('./routes/api/directions');
+app.use('/api/directions', directions);
+
+// Zipcode
+var zipcodes = require('./routes/api/zipcodes');
+app.use('/api/zipcodes', zipcodes);
+
+
 
 // -----------------------
 // ****** LISTEN ******

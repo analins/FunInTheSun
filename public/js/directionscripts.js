@@ -24,7 +24,7 @@ function directionsFormListener () {
         $.ajax({
             method: 'get',
             data: {zip: form.find('#form-zip').val()},
-            url: '/api/users/cities/directions',
+            url: '/api/directions',
             success: function (data) {
                 console.log(data);
                 renderDirections(data);

@@ -115,7 +115,7 @@ function getCurrentWeather() {
 
   $.ajax({
     method: 'get',
-    url: '/api/users/defaultweather',
+    url: '/api/weather',
     success: function (data) {
       renderWeatherResults(data);
     }
