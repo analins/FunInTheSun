@@ -65,7 +65,7 @@ function setLogInFormHandler() {
             console.log('Token:', $.cookie('token') );
             window.location="/user";
         });
-      getCurrentWeather();
+
     });
 }
 
