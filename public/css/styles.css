@@ -63,8 +63,14 @@ nav {
 }
 
 
+/*************************************/
+/*************USER PROFILE***********/
+/***********************************/
 
-
+#scroll-cards {
+  height: 100 vh;
+  overflow: scroll;
+}
 /*PRINT STYLES*/
 /*@media screen{
   .printable-area {

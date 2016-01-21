@@ -111,23 +111,23 @@ function setEditUserFormHandler(){
 }
 
 
-function getCurrentWeather() {
-
-  $.ajax({
-    method: 'get',
-    url: '/api/weather',
-    success: function (data) {
-      renderWeatherResults(data);
-    }
-  });
-}
-
-function renderWeatherResults(data) {
-  var source = $('#default-weather').html();
-  var template = Handlebars.compile(source);
-  var compiledHtml = template(data);
-  $('#current-weather').html(compiledHtml);
-}
+// function getCurrentWeather() {
+//
+//   $.ajax({
+//     method: 'get',
+//     url: '/api/weather',
+//     success: function (data) {
+//       renderWeatherResults(data);
+//     }
+//   });
+// }
+//
+// function renderWeatherResults(data) {
+//   var source = $('#default-weather').html();
+//   var template = Handlebars.compile(source);
+//   var compiledHtml = template(data);
+//   $('#current-weather').html(compiledHtml);
+// }
 
 
 // // Update a User
@@ -249,7 +249,7 @@ $(function () {
     setLogInFormHandler();
     setEditUserFormHandler();
     setSaveFavCityFormHandler();
-    getCurrentWeather();
+    //getCurrentWeather();
     deleteCityButton();
 
 

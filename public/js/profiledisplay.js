@@ -3,11 +3,13 @@ console.log('profile display loaded');
 //**********  DEFAULT WEATHER RENDERING  **********//
 
 function getCurrentWeather() {
+
   $.ajax({
     method: 'get',
-    url: '/api/users/defaultweather',
+    url: '/api/weather',
     success: function (data) {
       renderWeatherResults(data);
+      weatherBackground(data);
     }
   });
 }
@@ -19,25 +21,46 @@ function renderWeatherResults(data) {
   $('#current-weather').html(compiledHtml);
 }
 
+
+
+function weatherBackground(data) {
+  var data = data.current_observation.weather;
+
+  if ( /sunny$|clear$|^partly/.test(data) ) {
+    $('body').css({'background-image': 'url("/images/profileview/sea-sky-beach-holiday.jpeg")'});
+  }
+  if (/cloudy$|fog$|haze$|overcast$/.test(data) ) {
+    $('html').css({'background-image': 'url("/images/profileview/nature-sky-clouds-cloudy.jpg")'});
+  }
+  if (/flurries$|snow$|sleet$/.test(data) ) {
+      $('html').css({'background-image': 'url("/images/profileview/snow-forest-trees-winter.jpeg")'});
+  }
+  if (/rain$|^thunder/.test(data) ) {
+      $('html').css({'background-image': 'url("/images/profileview/city-weather-glass-skyscrapers.jpg")'});
+  }
+}
+
 //**********  BEST WEATHER **********//
 
-function getBestWeather() {
-  $.ajax({
-    method: 'get',
-    url: '/api/users/cities/best',
-    success: function (data) {
-      console.log(data);
-      renderBestResults(data)
-    }
-  });
-}
+// function getBestWeather() {
+//   $.ajax({
+//     method: 'get',
+//     url: '/api/users/cities/best',
+//     success: function (data) {
+//       console.log(data);
+//       renderBestResults(data)
+//     }
+//   });
+// }
+//
+// function renderBestResults(data) {
+//   var source = $('#best-weather').html();
+//   var template = Handlebars.compile(source);
+//   var compiledHtml = template(data);
+//   $('#best-results').html(compiledHtml);
+// }
 
-function renderBestResults(data) {
-  var source = $('#best-weather').html();
-  var template = Handlebars.compile(source);
-  var compiledHtml = template(data);
-  $('#best-results').html(compiledHtml);
-}
+
 
 
 //**********|||**********|||**********//
