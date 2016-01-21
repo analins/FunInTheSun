@@ -115,7 +115,7 @@ function getCurrentWeather() {
 
   $.ajax({
     method: 'get',
-    url: '/api/weather',
+    url: '/api/users/defaultweather',
     success: function (data) {
       renderWeatherResults(data);
     }
@@ -217,12 +217,22 @@ function deleteCity(cityData, callback) {
   $.ajax( {
     method: 'delete',
     url: 'api/users/cities',
-    data: cityData,
+    data: {zip: cityData},
     success: function(data) {
       remove(data);
     }
   });
 }
+
+ function deleteCityButton(){
+  $('.delete').on('click', function() {
+    $('#response').text();
+    var cityZip = $(this).attr('id');
+    deleteCity(cityZip, callback);
+
+  })
+}
+
 
 
 //SHOW ELEMENTS UPON LOGIN
@@ -240,6 +250,7 @@ $(function () {
     setEditUserFormHandler();
     setSaveFavCityFormHandler();
     getCurrentWeather();
+    deleteCityButton();
 
 
 
