@@ -55,7 +55,7 @@ function getComparedCities(callback) {
             $('#results-list').html(compileHtml);
         }
     });
-    $('#best-results').html($('#loader').html());
+    $('#results-list').html($('#loader').html());
 }
 
 //**********  BEST WEATHER **********//
