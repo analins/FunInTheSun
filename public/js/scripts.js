@@ -212,6 +212,19 @@ function getFavCities(callback) {
     });
 }
 
+
+function deleteCity(cityData, callback) {
+  $.ajax( {
+    method: 'delete',
+    url: 'api/users/cities',
+    data: cityData,
+    success: function(data) {
+      remove(data);
+    }
+  });
+}
+
+
 //SHOW ELEMENTS UPON LOGIN
 function showHideElements() {
     if ($.cookie('token')) {
