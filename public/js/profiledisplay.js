@@ -45,7 +45,7 @@ function cityWeatherBackground(data) {
 
 
   $('img.activator').each(function (i, card) {
-    var condition = data.cities[i].forecast.simpleforecast.forecastday[0].icon;
+    var condition = (data.cities[i].forecast && data.cities[i].forecast.simpleforecast.forecastday[0].icon) || "tstorms"; //tstorms if the zipcode is not found
     if ( /sunny$|clear$/.test(condition) ){
       $(this).attr('src', '/images/cities/sky-sunny-clouds-cloudy.jpg');
     }
