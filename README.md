@@ -1,19 +1,22 @@
-FunInTheSun
+<img src="public/images/getsun_large.png" width= "60px"></img> 
 
-A web application that connects people with the warm places they want to go to.
+# FunInTheSun
 
+## A web application that connects people with the warm places they want to go to.
 
-
-
-
-
+![FunInTheSun_LogIn](readme_files/funinthesun_login.png)
 
 
 
 
 
 
-FunInTheSun allows a user to:
+
+
+
+
+
+### FunInTheSun allows a user to:
     * Enter their home location and view current temperature and weather conditions.
     * Store 10 of their favorite cities and view current temperature and weather conditions.
     * View the 10 favorite cities in order of most optimal temperature and weather conditions in each             city.
