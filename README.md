@@ -11,7 +11,8 @@
 
 
 
-
+### Approach:
+As a team, we wanted to create an web application that helps people who are in need of a refreshing getaway or a weekend of fun in the sun.  Since weather is one of the major factors in choosing a travel destination we wanted to develop a tool that takes that uncertainty out of the equation.
 
 ### FunInTheSun allows a user to:
 * Enter their home location and view current temperature and weather conditions.
