@@ -25,7 +25,7 @@
           <p>{{forecast.txt_forecast.forecastday.[0].fcttext}}</p>
           <form class="directions-form">
               <input type="hidden" class="form-zip" placeholder="Zipcode" value="{{ location.zip }}">
-              <input type="submit" value="Get Directions">
+              <input type="submit" value="Get Directions" class="waves-effect waves btn-flat">
           </form>
         </div>
       </div>
@@ -51,8 +51,8 @@
 </script>
 
 <script id="directions" type="text/x-handlebars-template">
-  <h4>Directions to {{routes.[0].legs.[0].end_address}} </h4>
-  <h5>Distance: {{routes.[0].legs.[0].distance.text}}</h5><h5>Travel Time:{{routes.[0].legs.[0].duration.text}} %></h5>
+  <h5>Directions to {{routes.[0].legs.[0].end_address}} </h>
+  <h6>Distance: {{routes.[0].legs.[0].distance.text}}</h6><h6>Travel Time:{{routes.[0].legs.[0].duration.text}} %></h6>
   <ol>
     {{#each routes.[0].legs.[0].steps}}
     <li>{{{this.html_instructions}}}</li>

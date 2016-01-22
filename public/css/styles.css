@@ -89,6 +89,7 @@ body {
   padding: .5em 2em 2em 3em;
   font-family: 'Comfortaa', cursive;
   text-align: center;
+  color: #696969;
 }
 
 .welcome h1 {
@@ -114,4 +115,10 @@ body {
     width: 100%;
     text-align: center;
     margin-top: 30vh;
+}
+
+#directions-modal {
+  font-family: roboto;
+  text-align: left;
+  color: black;
 }
