@@ -1,7 +1,10 @@
-<img src="public/images/getsun_large.png" width= "60px"></img> 
 
+
+
+<div style="float: left; margin-top: 15px; margin-right: 20px">
+<img src="public/images/getsun_large.png" width= "60px">
+</div>
 # FunInTheSun
-
 ## A web application that connects people with the warm places they want to go to.
 
 ![FunInTheSun_LogIn](readme_files/funinthesun_login.png)
@@ -10,39 +13,36 @@
 
 
 
-
-
-
-
-
-
 ### FunInTheSun allows a user to:
-    * Enter their home location and view current temperature and weather conditions.
-    * Store 10 of their favorite cities and view current temperature and weather conditions.
-    * View the 10 favorite cities in order of most optimal temperature and weather conditions in each             city.
-    * Obtain driving directions between the home location and any location in the continental United States.
-    * Search to find the most optimal temperature and weather conditions within a radius of their chosen location.
+* Enter their home location and view current temperature and weather conditions.
+* Store 10 of their favorite cities and view current temperature and weather conditions.
+* View the 10 favorite cities in order of most optimal temperature and weather conditions in each             city.
+* Obtain driving directions between the home location and any location in the continental United States.
+* Search to find the most optimal temperature and weather conditions within a radius of their chosen location.
 
 
 Technologies used:
-    * Express
-    * JavaScript
-    * JQuery
-    * Mongo
-    * AJAX
-    * Third Party API's:
-        * Weather Underground
-        * Zipcode
-        * Google Directions
-    * Local API
-        * User
-    * Materialize
-    * Handlebars
-    * hosted in the public domain on Heroku.com (http://funinthesun.herokuapp.com/)
+* Express
+* JavaScript
+* JQuery
+* Mongo
+* AJAX
+* Third Party API's:
+    * Weather Underground
+    * Zipcode
+    * Google Directions
+* Local API
+    * User
+* Materialize
+* Handlebars
+* [Deployed on](http://funinthesun.herokuapp.com/) Heroku.
+
 
 
 Challenges:
-    Logic of rating a city based on temperature and weather conditions.
+1. Logic of rating a city based on temperature and weather conditions.
+1. Understanding the differences between how GET and POST requests are structured.
+1. Keeping files organized among multiple people.
 
 
 <!-- Explanations of the technologies used
