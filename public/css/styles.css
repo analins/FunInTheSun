@@ -47,6 +47,10 @@ nav {
   color: #ff7043;
 }
 
+.user-manager h4 {
+  font-family: 'Comfortaa', cursive;
+}
+
 .user-manager a {
   color: #ff7043;
   font-weight: bold;
