@@ -37,8 +37,6 @@ Technologies used:
 * Handlebars
 * [Deployed on](http://funinthesun.herokuapp.com/) Heroku.
 
-
-
 Challenges:
 1. Logic of rating a city based on temperature and weather conditions.
 1. Understanding the differences between how GET and POST requests are structured.
