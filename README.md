@@ -25,7 +25,7 @@ With GetSun it becomes much easier for a traveller to find a sunny destination t
 * Obtain driving directions between the home location and any location in the continental United States.
 * Search to find the most optimal temperature and weather conditions within a radius of their chosen location.
 
-![GetNewCity](readme_files/giphy.gif)
+![GetNewCity](readme_files/newcitygiphy.gif)
 
 
 #### Technologies used:
