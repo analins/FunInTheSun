@@ -41,6 +41,26 @@ function weatherBackground() {
 
 }
 
+function cityWeatherBackground(data) {
+
+
+  $('img.activator').each(function (i, card) {
+    var condition = data.cities[i].forecast.simpleforecast.forecastday[0].icon;
+    if ( /sunny$|clear$/.test(condition) ){
+      $(this).attr('src', '/images/cities/sky-sunny-clouds-cloudy.jpg');
+    }
+    if ( /cloudy$|fog$|hazy$/.test(condition) ){
+      $(this).attr('src', '/images/cities/snow-dawn-nature-sky.jpg');
+    }
+    if ( /snow$|flurries$/.test(condition) ){
+      $(this).attr('src', '/images/cities/snow-forest-trees-winter.jpeg');
+    }
+    if ( /rain$|tstorms$|sleet$/.test(condition) ){
+      $(this).attr('src', '/images/cities/city-lights-night-clouds.jpg');
+    }
+  });
+}
+
 function getComparedCities(callback) {
     callback = callback || function(){};
     $.ajax({
@@ -56,6 +76,7 @@ function getComparedCities(callback) {
             var compileHtml = template(data);
             $('#results-list').html(compileHtml);
             directionsFormListener(); // Set handler for each of the get directions buttons
+            cityWeatherBackground(data);
         }
     });
     $('#results-list').html($('#loader').html());

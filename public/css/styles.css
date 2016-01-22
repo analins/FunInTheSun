@@ -1,10 +1,11 @@
 nav {
   background-color: rgba(255,87,34, 0.9);
-  rg
 }
 
 .logo {
-  font-size: 1.5em;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  font-size: 1.75em;
   margin-left: 3em;
   position:relative;
 }
@@ -12,7 +13,7 @@ nav {
     height:2.5em;
     width:2.5em;
     margin-left: -2.5em;
-    margin-top: .2em;
+    margin-top: .05em;
     background-repeat: none;
     -webkit-background-size: contain;
     background-size: contain;
@@ -81,13 +82,32 @@ body {
   height: 100vh;
 }
 
+.welcome {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.01));
+  margin-top: 8em;
+  margin-left: -1em;
+  padding: .5em 2em 2em 3em;
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+}
+
+.welcome h1 {
+  text-align: left;
+  margin-bottom: .5em;
+}
+
+#current-weather {
+  margin-left: 3em;
+  margin-bottom: 1em;
+
+}
 #scroll-cards {
   height: 90vh;
   overflow: scroll;
 }
 
 .card-content{
-  background: rgba(255, 255, 255, .2);
+  background-color: rgba(255, 255, 255, .2);
 }
 
 .loader-container{
@@ -95,4 +115,3 @@ body {
     text-align: center;
     margin-top: 30vh;
 }
-profile

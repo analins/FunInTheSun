@@ -11,15 +11,19 @@
     <% include ../partials/navbar %>
     <div class="row" id="profile-container" >
       <div class="col s8">
-        <h1>Hello <%= user.name.first %>.</h1>
-        <div id="current-weather"></div>
-        <% include ../partials/directions %>
-        <% include ../partials/addcity %>
-        <% include ../partials/edituser %>
+
+        <div class="welcome">
+          <h1>Hello <%= user.name.first %>.</h1>
+          <div id="current-weather"></div>
+          <% include ../partials/directions %>
+          <% include ../partials/addcity %>
+          <% include ../partials/edituser %>
+          <button id="getCities" class="btn waves-effect waves orange">Find Best Weather</button>
+        </div>
 
         <div id="best-results"></div>
 
-        <button id="getCities" class="waves-effect waves-teal btn-flat">Get Cities' Weather</button>
+
 
         <section id="directions-view"></section>
 
