@@ -83,6 +83,7 @@ body {
   background-size: cover;
   background-position: center fixed;
   background-repeat: no-repeat;
+  overflow: hidden;
   height: 100vh;
 }
 
@@ -109,6 +110,9 @@ body {
 #scroll-cards {
   height: 90vh;
   overflow: scroll;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .card-content{
@@ -125,4 +129,12 @@ body {
   font-family: roboto;
   text-align: left;
   color: black;
+}
+
+
+.clear-white {
+    background-color: rgba(255,255,255,.4);
+}
+.result-card {
+    opacity: 0;
 }

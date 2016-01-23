@@ -33,7 +33,7 @@ function weatherBackground() {
     $('body').css({'background-image': 'url("/images/profileview/nature-sky-clouds-cloudy.jpg")'});
   }
   if (/flurries$|snow$|sleet$/i.test(conditions) ) {
-      $('body').css({'background-image': 'url("/images/profileview/snow-forest-trees-winter.jpeg")'});
+      $('body').css({'background-image': 'url("/images/profileview/cold-snow-forest-trees.jpg")'});
   }
   if (/rain$|^thunder/i.test(conditions) ) {
       $('body').css({'background-image': 'url("/images/profileview/city-weather-glass-skyscrapers.jpg")'});
@@ -42,8 +42,6 @@ function weatherBackground() {
 }
 
 function cityWeatherBackground(data) {
-
-
   $('img.activator').each(function (i, card) {
     var condition = (data.cities[i].forecast && data.cities[i].forecast.simpleforecast.forecastday[0].icon) || "tstorms"; //tstorms if the zipcode is not found
     if ( /sunny$|clear$/.test(condition) ){
@@ -59,6 +57,7 @@ function cityWeatherBackground(data) {
       $(this).attr('src', '/images/cities/city-lights-night-clouds.jpg');
     }
   });
+  Materialize.showStaggeredList('#results-list');
 }
 
 function getComparedCities(callback) {
@@ -102,8 +101,20 @@ function getComparedCities(callback) {
 //   $('#best-results').html(compiledHtml);
 // }
 
+//overwriting Materialize action
+Materialize.showStaggeredList = function(selector) {
+  var time = 0;
+  $(selector).find('li').velocity(
+      { translateX: "100px"},
+      { duration: 0 });
 
-
+  $(selector).find('li').each(function() {
+    $(this).velocity(
+      { opacity: "1", translateX: "0"},
+      { duration: 800, delay: time, easing: [60, 10] });
+    time += 120;
+  });
+};
 
 //**********|||**********|||**********//
 
