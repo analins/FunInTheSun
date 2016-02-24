@@ -12,9 +12,9 @@
 
 
 #### Approach:
-As a team, we wanted to create a web application that helps people who are in need of a refreshing getaway or a weekend of fun in the sun.  Since weather is one of the major factors that affects a traveller's experience we developed a tool that takes that uncertainty out of choosing a destination.
+As a team, we wanted to create a web application that helps people who are in need of a little sunshine.  Since weather is one of the major factors that affects our daily experiences we developed a tool that gives that cloudy day a silver lining by providing options of locations either close by or anywhere else that might be sunnier than the user's current location.
 
-With GetSun it becomes much easier for a traveller to find a sunny destination to restore their sunny disposition.
+With GetSun it becomes much easier for the user to find a sunny destination to restore their sunny disposition.
 
 
 
@@ -29,17 +29,15 @@ With GetSun it becomes much easier for a traveller to find a sunny destination t
 
 
 #### Technologies used:
+* node.js
 * Express
 * JavaScript
 * JQuery
-* Mongo
-* AJAX
-* Third Party API's:
+* MongoDB
+* Third Party APIs:
     * Weather Underground
     * Zipcode
     * Google Directions
-* Local API
-    * User
 * Materialize
 * Handlebars
 * [Deployed on](http://getsun.herokuapp.com/) Heroku.
